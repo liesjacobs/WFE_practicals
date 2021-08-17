@@ -6,7 +6,7 @@ In this practical we will be exploring the datasets and functionalities of Googl
 ## Step 1: exploring the interface
 
 Now that you have your account, you can surf to the [code editor](code.earthengine.google.com/).
-Your screen should look like this ![screen](WFE_practicals/GEE.png).: 
+Your screen should look like this ![screen](/WFE_practicals/GEE.PNG).: 
 
 
 ```markdown
