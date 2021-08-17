@@ -1,8 +1,4 @@
----
-layout: lesson
-title: Home
-description: WFE Introduction to practicals
----
+
 
 
 ## Welcome to the practicals of World Food and Ecosystems
