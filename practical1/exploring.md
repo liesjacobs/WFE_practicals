@@ -1,14 +1,13 @@
-# Welcome to the first practical. 
-
+## Step 3: exploring the functionalities
 In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on [the starting page](https://liesjacobs.github.io/World_Food-and_Ecosystems/)
 
 
-## Step 3: exploring the functionalities
+## Exercise 1: loading the biome map of the world and exploring its values
 
 Now that we know more or less how it looks, let's use it. 
 If at any point your lost on the basic JavaScript commands, go [back](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.md)
 
-> Exercise 1: plotting the biome map of the world and exploring its values. 
+> Starting to build the script: exploring the Biome map 
 
 Copy this piece of code in the 'script' panel of the earth engine GUI. 
 
@@ -24,11 +23,18 @@ print(biomes);
 
 Save the file (e.g. name it 'BiomePlotting') and run it. 
 
-If all goes well, you should see some basic information about the image *printed* in the console: how many bands does this Image have?
+**If all goes well, you should see some basic information about the image *printed* in the console: how many bands does this Image have?**
 
+
+
+> Exercise 2: plotting the biome map on the baselayer map and discovering its values
+
+
+Now that we know (more or less) which Map we have loaded (for more info, you can always search the searchbar on top of the GUI), let's plot the map: 
 
 
 ```javascript
+// First we need to define how we want to handle the visualisation: we need to *declare a variable* that describes how/what we want to plot. 
 var visualization = {
   bands: ['biome_type'],
   min: 1.0,
@@ -41,73 +47,29 @@ var visualization = {
   ]
 };
 
-Map.centerObject(dataset);
 
-Map.addLayer(dataset, visualization, "Potential distribution of biomes");
-
-/* Multi-line comments start with a forward slash and a star,
-and end with a star and a forward slash. */
 ```
 
-Variables are used to store objects and are defined using the keyword **var**.
-```javascript
+** Why is the minimum set at 1, and the maximum at 32? (hint: check the properties) **
 
-var theAnswer = 42;
-```
-string objects start and end with a single quote
-```javascript
-var myVariable = 'I am a string';
+** What is does the *palette* specification entail? **
 
-// string objects can also use double quotes, but don't mix and match
-var myOtherVariable = "I am also a string";
-```
+
 
 ```javascript
-Statements should end in a semi-colon, or the editor complains.
+// First we set the location (lat, long, zoomlevel) where we want to focus the visualisation on: https://developers.google.com/earth-engine/apidocs/map-setcenter
+Map.setCenter(4,53,7);
 
-var test = 'I feel incomplete...'
-var test2 = 'I feel complete!';
-```
 
-Passing function parameters and using lists: 
-```javascript
-// Parentheses are used to pass parameters to functions
-print('This string will print in the Console tab.');
-
-/* Square brackets are used for items in a list.
-The zero index refers to the first item in a list*/
-var myList = ['eggplant','apple','wheat'];
-print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0 (and not from 1, like R)
-```
-
-Using dictionaries
-```javascript
-
-// Curly brackets (or braces) can be used to define dictionaries (key:value pairs).
-var myDict = {'food':'bread', 'color':'red', 'number':42};
-
-// Square brackets can be used to access dictionary items by key.
-print(myDict['color']);
-
-//Or you can use the dot notation to get the same result.
-print(myDict.color);
-```
-
-Functions can be defined as a way to reuse code and make it easier to read.
-```javascript
-var myHelloFunction = function(string) {
-  return 'Hello ' + string + '!';
-};
-print(myHelloFunction('world'));
-
+// Then we add the Layer to the lower panel visualisation: 
+Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 
 
 ```
+ ** In the last line here, what is the *function*, what are the *input variables* or *arguments* **
+ 
+ 
 
-In this course, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
+#### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
 
-
-But now that you know the basics, let's explore its functionalities: 
-[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://github.com/liesjacobs/World-Food-and-Ecosystems/edit/gh-pages/practical1/exploring.md)
-
-
+The one for the map.addlayer function can be found [here](https://developers.google.com/earth-engine/apidocs/map-addlayer)
