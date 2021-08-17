@@ -10,7 +10,7 @@ In preparation for the course, please install following software:
 2. Install [R and R studio](http://cran.rstudio.com/)
 3. Make a google earth engine account, by [signing up here](https://signup.earthengine.google.com/#!/) 
 
-2. List
+
 
 ```markdown
 Syntax highlighted code block
