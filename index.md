@@ -17,9 +17,9 @@ In preparation for the course, please install following software:
 2. Install [R and R studio](http://cran.rstudio.com/)
 3. Make a google earth engine account, by [signing up here](https://signup.earthengine.google.com/#!/) 
 
-### You can find the instructions for practical 1 here: 
+### You can find the instructions for practicals here: 
 [Practical 1](https://liesjacobs.github.io/WFE_practicals/practical1/intro.html)
-
+[Practical 1](https://liesjacobs.github.io/WFE_practicals/practical1/intro.html)
 
 ```markdown
 Syntax highlighted code block
