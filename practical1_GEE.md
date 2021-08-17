@@ -23,6 +23,7 @@ To access, explore and use Google Earth Engine, only a basic understanding of Ja
 Of course, although the building blocks are similar, the syntax can differ quite a bit. Some key tips and tricks for JavaScript are listed here (source: <a href="https://docs.google.com/document/d/1ZxRKMie8dfTvBmUNOO0TFMkd7ELGWf3WjX0JvESZdOE/edit" target="_blank">Earth Engine 101 Beginner's Curriculum</a>.
 
 
+```javascript
 {% highlight javascript %}
 // Line comments start with two forward slashes. Like this line.
 
@@ -78,5 +79,6 @@ var myHelloFunction = function(string) {
 print(myHelloFunction('world'));
 {% endhighlight %}
 
+```
 
 In this course, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
