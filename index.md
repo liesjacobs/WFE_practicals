@@ -1,12 +1,16 @@
-## Welcome to GitHub Pages
+## Welcome to the practicals of World Food and Ecosystems
 
-You can use the [editor on GitHub](https://github.com/liesjacobs/WFE_practicals/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is the GitHub Page that summarizes the instructions for practicals 1-2-6-7-8 of the course  [World Food and Ecosystems](https://canvas.uva.nl/courses/17225).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Preparation for the course
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+In preparation for the course, please install following software: 
+1. Install [QGIS 3.4xx (with GRASS 7.6xxx)](https://www.qgis.org/en/site/forusers/download.html). I recommend installing the long-term release version. 
+2. Install [R and R studio](http://cran.rstudio.com/)
+3. Make a google earth engine account, by [signing up here](https://signup.earthengine.google.com/#!/) 
+
+2. List
 
 ```markdown
 Syntax highlighted code block
