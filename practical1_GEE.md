@@ -16,34 +16,67 @@ The code editor basically consists of 4 windows:
 
 
 ## Step 2: exploring the code
+The Google Earth Engine interface, as you see it above, runs on JavaScript. It might seem scary to be confronted with a new (and at times cryptic) language, but no worries: we'll go step by step. 
+
+To access, explore and use Google Earth Engine, only a basic understanding of JavaScript suffices. As we saw in class, the basic building blocks of writing code (in python, R, Javascript...) is (i) the identification of the necessary variables, (ii) the identification of the appropriate functions, (iii) understanding which input parameters these functions require. 
+
+Of course, although the building blocks are similar, the syntax can differ quite a bit. Some key tips and tricks for JavaScript are listed here (source: <a href="https://docs.google.com/document/d/1ZxRKMie8dfTvBmUNOO0TFMkd7ELGWf3WjX0JvESZdOE/edit" target="_blank">Earth Engine 101 Beginner's Curriculum</a>.
 
 
+{% highlight javascript %}
+// Line comments start with two forward slashes. Like this line.
 
-```markdown
-Syntax highlighted code block
+/* Multi-line comments start with a forward slash and a star,
+and end with a star and a forward slash. */
+{% endhighlight %}
 
-# Header 1
-## Header 2
-### Header 3
+Variables are used to store objects and are defined using the keyword **var**.
+{% highlight javascript %}
+var theAnswer = 42;
 
-- Bulleted
-- List
+// string objects start and end with a single quote
+var myVariable = 'I am a string';
 
-1. Numbered
-2. List
+// string objects can also use double quotes, but don't mix and match
+var myOtherVariable = "I am also a string";
+{% endhighlight %}
 
-**Bold** and _Italic_ and `Code` text
+Statements should end in a semi-colon, or the editor complains.
+{% highlight javascript %}
+var test = 'I feel incomplete...'
+var test2 = 'I feel complete!';
+{% endhighlight %}
 
-[Link](url) and ![Image](src)
-```
+Passing function parameters and using lists
+{% highlight javascript %}
+// Parentheses are used to pass parameters to functions
+print('This string will print in the Console tab.');
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+/* Square brackets are used for items in a list.
+The zero index refers to the first item in a list*/
+var myList = ['eggplant','apple','wheat'];
+print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0 (and not from 1, like R)
+{% endhighlight %}
 
-### Jekyll Themes
+Using dictionaries
+{% highlight javascript %}
+// Curly brackets (or braces) can be used to define dictionaries (key:value pairs).
+var myDict = {'food':'bread', 'color':'red', 'number':42};
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/liesjacobs/WFE_practicals/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+// Square brackets can be used to access dictionary items by key.
+print(myDict['color']);
 
-### Support or Contact
+//Or you can use the dot notation to get the same result.
+print(myDict.color);
+{% endhighlight %}
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Functions can be defined as a way to reuse code and make it easier to read.
+{% highlight javascript %}
+var myHelloFunction = function(string) {
+  return 'Hello ' + string + '!';
+};
+print(myHelloFunction('world'));
+{% endhighlight %}
 
+
+In this course, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
