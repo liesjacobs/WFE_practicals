@@ -4,101 +4,48 @@ title: "Setup"
 permalink: /setup/
 ---
 
-## Getting the Data
 
-The data we will be using is taken from the [gapminder](gapminder.org) dataset.
-To obtain it, download and unzip the file [python-novice-gapminder-data.zip](python-novice-gapminder-data.zip).
-In order to follow the presented material, you should create the Jupyter notebook in the "data" directory.
 
-## Starting Python
+## Welcome to the practicals of World Food and Ecosystems
 
-If you will be using the IPython or Jupyter notebook for the lesson,
-you should have already
-[installed Anaconda](http://swcarpentry.github.io/workshop-template/#setup)
-which includes the notebook.
+This is the GitHub Page that summarizes the instructions for practicals 1-2-6-7-8 of the course  [World Food and Ecosystems](https://canvas.uva.nl/courses/17225).
 
-To start the notebook, open a terminal or git bash and type the command:
 
-~~~
-$ jupyter notebook
-~~~
-{: .source}
+### Preparation for the course
 
-To start the Python intrepreter without the notebook, open a terminal or git bash and type the command:
+In preparation for the course, please install following software: 
+1. Install [QGIS 3.4xx (with GRASS 7.6xxx)](https://www.qgis.org/en/site/forusers/download.html). I recommend installing the long-term release version. 
+2. Install [R and R studio](http://cran.rstudio.com/)
+3. Make a google earth engine account, by [signing up here](https://signup.earthengine.google.com/#!/) 
 
-~~~
-$ python
-~~~
-{: .source}
+### You can find the instructions for practical 1 here: 
+[Practical 1](https://liesjacobs.github.io/WFE_practicals/practical1/intro.html)
 
-## Installation Using Anaconda
 
-[Python](https://python.org) is a popular language for scientific computing, and great for
-general-purpose programming as well. Installing all of its scientific packages
-individually can be a bit difficult, so we recommend
-[Anaconda](https://www.continuum.io/anaconda), an all-in-one
-installer.
+```markdown
+Syntax highlighted code block
 
-Regardless of how you choose to install it, please make sure you install Python
-version 3.x (e.g., 3.4 is fine).
+# Header 1
+## Header 2
+### Header 3
 
-We will teach Python using the Jupyter notebook, a programming environment that
-runs in a web browser. For this to work you will need a reasonably up-to-date
-browser. The current versions of the Chrome, Safari and Firefox browsers are all
-supported (some older browsers, including Internet Explorer version 9 and below,
-are not).  Enumerated below are setup instructions for Windows, Mac OS X, and
-Linux.  Please setup your python environment at least a day in advance of the
-workshop.  If you encounter problems with the installation procedure, please ask
-your workshop organizers via e-mail for assistance getting set up.
+- Bulleted
+- List
 
-### Windows - [Video tutorial](https://www.youtube.com/watch?v=xxQ0mzZ8UvA)
+1. Numbered
+2. List
 
-1. Open [http://continuum.io/downloads](http://continuum.io/downloads) with your web browser.
+**Bold** and _Italic_ and `Code` text
 
-2. Download the Python 3 installer for Windows.
+[Link](url) and ![Image](src)
+```
 
-3. Install Python 3 using all of the defaults for installation except make sure to
-   check **Make Anaconda the default Python**.
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Mac OS X - [Video tutorial](https://www.youtube.com/watch?v=TcSAln46u9U)
+### Jekyll Themes
 
-1. Open [http://continuum.io/downloads](http://continuum.io/downloads) with your web browser.
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/liesjacobs/WFE_practicals/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-2. Download the Python 3 installer for OS X.
+### Support or Contact
 
-3. Install Python 3 using all of the defaults for installation.
-
-### Linux
-
-1.  Open [http://continuum.io/downloads](http://continuum.io/downloads) with your web browser.
-
-2.  Download the Python 3 installer for OS X.
-
-3.  Install Python 3 using all of the defaults for installation.  Note that
-    installation requires using the shell, if you aren't comfortable doing then
-    installation yourself then stop here and request help before the workshop
-    begins.
-
-4.  Open a terminal window.
-
-5.  Type
-
-    ~~~
-    $ bash Anaconda3-
-    ~~~
-    {: .source}
-
-    and press tab.  The name of the file you just downloaded should appear.
-
-6.  Press enter.  You will follow the text-only prompts.  When there is a colon
-    at the bottom of the screen press the down arrow to move down through the text.
-    Type `yes` and press enter to approve the license. Press enter to approve the
-    default location for the files. Type `yes` and press enter to prepend Anaconda to
-    your `PATH` (this makes the Anaconda distribution the default Python).
-
-## Get Gapminder Data
-
-The data we will be using is taken from the [gapminder](gapminder.org) dataset.
-To obtain it, download and unzip the file
-[python-novice-gapminder-data.zip]({{ site.github.repository_url }}/python-novice-gapminder-data.zip).
-In order to follow the presented material, you should create the Jupyter notebook in the "data" directory.
+Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
