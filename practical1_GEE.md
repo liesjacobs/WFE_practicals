@@ -24,32 +24,35 @@ Of course, although the building blocks are similar, the syntax can differ quite
 
 
 ```javascript
-{% highlight javascript %}
+
 // Line comments start with two forward slashes. Like this line.
 
 /* Multi-line comments start with a forward slash and a star,
 and end with a star and a forward slash. */
-{% endhighlight %}
+```
 
 Variables are used to store objects and are defined using the keyword **var**.
-{% highlight javascript %}
-var theAnswer = 42;
+```javascript
 
-// string objects start and end with a single quote
+var theAnswer = 42;
+```
+string objects start and end with a single quote
+```javascript
 var myVariable = 'I am a string';
 
 // string objects can also use double quotes, but don't mix and match
 var myOtherVariable = "I am also a string";
-{% endhighlight %}
+```
 
+```javascript
 Statements should end in a semi-colon, or the editor complains.
-{% highlight javascript %}
+
 var test = 'I feel incomplete...'
 var test2 = 'I feel complete!';
-{% endhighlight %}
+```
 
-Passing function parameters and using lists
-{% highlight javascript %}
+Passing function parameters and using lists: 
+```javascript
 // Parentheses are used to pass parameters to functions
 print('This string will print in the Console tab.');
 
@@ -57,10 +60,11 @@ print('This string will print in the Console tab.');
 The zero index refers to the first item in a list*/
 var myList = ['eggplant','apple','wheat'];
 print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0 (and not from 1, like R)
-{% endhighlight %}
+```
 
 Using dictionaries
-{% highlight javascript %}
+```javascript
+
 // Curly brackets (or braces) can be used to define dictionaries (key:value pairs).
 var myDict = {'food':'bread', 'color':'red', 'number':42};
 
@@ -69,15 +73,16 @@ print(myDict['color']);
 
 //Or you can use the dot notation to get the same result.
 print(myDict.color);
-{% endhighlight %}
+```
 
 Functions can be defined as a way to reuse code and make it easier to read.
-{% highlight javascript %}
+```javascript
 var myHelloFunction = function(string) {
   return 'Hello ' + string + '!';
 };
 print(myHelloFunction('world'));
-{% endhighlight %}
+
+
 
 ```
 
