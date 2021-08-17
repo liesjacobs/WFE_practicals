@@ -15,7 +15,7 @@ In preparation for the course, please install following software:
 ### You can find the instructions for practicals here: 
 [Practical 1](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html)
 
-[Practical 2](https://liesjacobs.github.io/WFE_practicals/practical1/intro.html)
+[Practical 2](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html)
 
 ```markdown
 Syntax highlighted code block
