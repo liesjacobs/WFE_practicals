@@ -1,6 +1,6 @@
 # Welcome to the first practical. 
 
-In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on [the starting page](https://liesjacobs.github.io/WFE_practicals/)
+In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on [the starting page](https://liesjacobs.github.io/World-Food-and_Ecosystems/)
 
 
 ## Step 1: exploring the interface
@@ -90,5 +90,5 @@ In this course, you won't have to write code yourself: we'll simply adjust exist
 
 
 But now that you know the basics, let's explore its functionalities: 
-[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://github.com/liesjacobs/World-Food-and-Ecosystems/edit/gh-pages/practical1/exploring.md)
+[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://github.com/liesjacobs/World-Food-and-Ecosystems/practical1/exploring.md)
 
