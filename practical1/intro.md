@@ -90,5 +90,5 @@ In this course, you won't have to write code yourself: we'll simply adjust exist
 
 
 But now that you know the basics, let's explore its functionalities: 
-![follow-me](https://user-images.githubusercontent.com/6694151/50792013-9b812200-1291-11e9-9738-378daf992840.jpg)
+[![follow-me](https://user-images.githubusercontent.com/6694151/50792013-9b812200-1291-11e9-9738-378daf992840.jpg)](https://github.com/liesjacobs/World-Food-and-Ecosystems/edit/gh-pages/practical1/exploring.md)
 
