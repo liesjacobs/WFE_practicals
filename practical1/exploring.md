@@ -2,7 +2,7 @@
 In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on [the starting page](https://liesjacobs.github.io/World_Food-and_Ecosystems/)
 
 
-## Exercise 1: loading the biome map of the world and exploring its values
+### Exercise 1: loading the biome map of the world and exploring its values
 
 Now that we know more or less how it looks, let's use it. 
 If at any point your lost on the basic JavaScript commands, go [back](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.md)
