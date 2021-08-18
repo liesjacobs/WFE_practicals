@@ -24,7 +24,7 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 | temporal scale |  Long term average (at least year-based), and all data input should span same timespan |
 | Assumption | 'Greenness' of the land directly depends on the water deficit (or, the comparison of PET with precipitation)  |
 | Dimensions | We'll consider water deficit as independent variable, NPP as dependent variable |
-| Dimension description | TerraClimate for the deficit, NPP from LANDSAT |
+| Dimension description | TerraClimate for the deficit, NPP from MODIS Imagery |
 
 
 
@@ -43,9 +43,21 @@ var transect = ee.Geometry.LineString([[-123, 46], [-120, 46]]);
 Map.addLayer(transect, {color: 'FF0000'}, 'transect');
 ```
 
-Now, we can import the Image(collections). We'll start with an easy one: the SRTM DEM
+Now, we can import the Image(collections): the NPP from MODIS satellite and the water Deficit from the Terraclimate project
 
 ```javascript
+
+var NPP = ee.ImageCollection('UMT/NTSG/v2/MODIS/NPP')
+                  .filter(ee.Filter.date('2017-01-01', '2017-12-31'));
+var npp = NPP.select('annualNPP');
+var nppVis = {
+  min: 0.0,
+  max: 20000.0,
+  palette: ['bbe029', '0a9501', '074b03'],
+};
+Map.addLayer(npp, nppVis, 'NPP');
+
+
 var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
                   .filter(ee.Filter.date('2017-01-01', '2017-12-31'));
 //we can directly use the climate water deficit (one of the bands):
@@ -55,5 +67,10 @@ Map.addLayer(deficit, {min: 0, max: 3000}, 'deficit');
 
 ```
 
-**print(deficit) function gives you an overview of the content of the ImmageCollection 'deficit'. How many images are in the Immagecollection, why?**
+**print(deficit) function gives you an overview of the content of the ImmageCollection 'deficit'. How many images (features) are in the Immagecollection, why? Does the npp variable have the same amount of images?**
+
+
+
+Indeed, we'll have to somehow summarize the information of the images in 'deficit' to obtain one image. Luckily, there is a [function](https://developers.google.com/earth-engine/images/Reduce_ImageCollection.png) that helps us.
+
 
