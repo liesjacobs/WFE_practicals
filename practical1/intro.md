@@ -104,10 +104,7 @@ But now that you know the basics, let's explore its functionalities:
   <ul>
     <li><strong>Practical 1: exercise 1</strong></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and_Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
-    <li><a href="clients.html">Our Clients</a></li>
-    <li><a href="products.html">Our Products</a></li>
-    <li><a href="services.html">Our Services</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and_Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
   </ul>
 </nav>
 
