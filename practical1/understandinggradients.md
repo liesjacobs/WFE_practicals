@@ -48,7 +48,7 @@ Now, we can import the Image(collections). We'll start with an easy one: the SRT
 ```javascript
 // Now we can import the Image(collections)
 var var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
-                  .filter(ee.Filter.date('2017-07-01', '2017-08-01'));
+                  .filter(ee.Filter.date('2017-01-01', '2017-12-31'));
 //we can directly use the climate water deficit proposed:
 var deficit = climateset.select('def');
 ```
