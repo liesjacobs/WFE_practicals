@@ -87,7 +87,7 @@ print(myHelloFunction('world'));
 ```
 
 
-<p style="color:blue;">Question 1.1. In this last function, what is the input that the function needs? </p>
+<p style="color:blue;"><p style="font-weight:bolder;">Question 1.1. In this last function, what is the input that the function needs? </p></p>
 
 
 
