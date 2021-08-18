@@ -23,7 +23,9 @@ print(biomes);
 
 Save the file (e.g. name it 'BiomePlotting') and run it. 
 
-**If all goes well, you should see some basic information about the image *printed* in the console: how many bands does this Image have?**
+
+<p style="color:blue;"><p style="font-weight:bolder;">Question 1.2. If all goes well, you should see some basic information about the image *printed* in the console: how many bands does this Image have? </p></p>
+
 
 
 
@@ -50,9 +52,12 @@ var visualization = {
 
 ```
 
-** Why is the minimum set at 1, and the maximum at 32? (hint: check the properties) **
+<p style="color:blue;"><p style="font-weight:bolder;">Question 1.3. Why is the minimum set at 1, and the maximum at 32? (hint: check the properties) </p></p>
 
-** What is does the *palette* specification entail? **
+<p style="color:blue;"><p style="font-weight:bolder;">Question 1.4. What is does the *palette* specification entail?  </p></p>
+
+
+
 
 
 
@@ -66,8 +71,9 @@ Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 
 
 ```
- ** In the last line here, what is the *function*, what are the *input variables* or *arguments* **
- 
+
+<p style="color:blue;"><p style="font-weight:bolder;">Question 1.5. In the last line here, what is the *function*, what are the *input variables* or *arguments*  </p></p>
+
  
 
 #### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
