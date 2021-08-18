@@ -95,7 +95,7 @@ In this course, you won't have to write code yourself: we'll simply adjust exist
 
 
 But now that you know the basics, let's explore its functionalities: 
-[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://github.com/liesjacobs/World-Food-and-Ecosystems/practical1/exploring.md)
+[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://liesjacobs.github.io/World-Food-and_Ecosystems/exploring.md)
 
 
 
