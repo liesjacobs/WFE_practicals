@@ -22,12 +22,12 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 |---|---|
 | Geographic scale |  Transect (line) |
 | temporal scale |  Long term average (at least year-based), and all data input should span same timespan |
-| Assumption | 'Greenness' of the land directly depends on the water deficit (or, the comparison of PET with precipitation) , which in turn depends on rainfall and Potential evapotranspiration (thus Temperature), which in turn is determined by a strong topographic boundary (the mountain range) |
-| Dimensions | We'll consider water deficit, rainfall, temperature and elevation as independent variables, NPP as dependent variable |
-| Dimension description | SRTM DEM, TerraClimate, NPP from LANDSAT |
+| Assumption | 'Greenness' of the land directly depends on the water deficit (or, the comparison of PET with precipitation)  |
+| Dimensions | We'll consider water deficit as independent variable, NPP as dependent variable |
+| Dimension description | TerraClimate for the deficit, NPP from LANDSAT |
 
 
-==> For the purpose of this exercise, we'll further simplify: We'll start with simply investigating the relationship between water-deficit and primary production
+
 
 > step 2: Define the spatial unit, and import the relevant layers
 
@@ -46,12 +46,14 @@ Map.addLayer(transect, {color: 'FF0000'}, 'transect');
 Now, we can import the Image(collections). We'll start with an easy one: the SRTM DEM
 
 ```javascript
-// Now we can import the Image(collections)
-var var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
+var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
                   .filter(ee.Filter.date('2017-01-01', '2017-12-31'));
-//we can directly use the climate water deficit proposed:
+//we can directly use the climate water deficit (one of the bands):
 var deficit = climateset.select('def');
+print(deficit);
+Map.addLayer(deficit, {min: 0, max: 3000}, 'deficit');
+
 ```
 
-Do you understand this last line? If this is cryptic: try print(climateset); to print the information on this Image to the console, this might clarify this last line of code. 
+**print(deficit) function gives you an overview of the content of the ImmageCollection 'deficit'. How many images are in the Immagecollection, why?**
 
