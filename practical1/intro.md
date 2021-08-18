@@ -87,7 +87,7 @@ print(myHelloFunction('world'));
 ```
 
 
-<p style="color:blue;"><p style="font-weight:bolder;">Question 1.1. In this last function, what is the input that the function needs? </p></p>
+<p style="color:blue;" "font-weight:bolder;">Question 1.1. In this last function, what is the input that the function needs? </p>
 
 
 
@@ -95,15 +95,15 @@ In this course, you won't have to write code yourself: we'll simply adjust exist
 
 
 But now that you know the basics, let's explore its functionalities: 
-[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://liesjacobs.github.io/World-Food-and_Ecosystems/exploring.md)
+[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://liesjacobs.github.io/World-Food-and_Ecosystems/practical1/exploring.html)
 
 
 
 
 <nav>
   <ul>
-    <li><strong>Home</strong></li>
-    <li><a href="about.html">About Us</a></li>
+    <li><strong>Practical 1: exercise 1</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and_Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
     <li><a href="clients.html">Our Clients</a></li>
     <li><a href="products.html">Our Products</a></li>
     <li><a href="services.html">Our Services</a></li>
