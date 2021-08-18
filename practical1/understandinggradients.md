@@ -56,6 +56,8 @@ var nppVis = {
   palette: ['bbe029', '0a9501', '074b03'],
 };
 Map.addLayer(npp, nppVis, 'NPP');
+//Because npp is an imagecollection (consisting of only 1 image) we want to select -and continue with -  only that image: 
+var nppImage = npp.first();
 
 
 var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
@@ -63,7 +65,7 @@ var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
 //we can directly use the climate water deficit (one of the bands):
 var deficit = climateset.select('def');
 print(deficit);
-Map.addLayer(deficit, {min: 0, max: 3000}, 'deficit');
+
 
 ```
 
@@ -74,3 +76,108 @@ Map.addLayer(deficit, {min: 0, max: 3000}, 'deficit');
 Indeed, we'll have to somehow summarize the information of the images in 'deficit' to obtain one image. Luckily, there is a [function](https://developers.google.com/earth-engine/guides/reducers_image_collection) that helps us.
 
 
+```javascript
+var meandeficit = deficit.reduce(ee.Reducer.mean());
+Map.addLayer(meandeficit, {min: 0, max: 3000}, 'deficit');
+```
+
+
+
+
+
+> step 3: Plot the values of the dependent and independent variables along the transect
+
+Now that we have the data, we can make a plot showing how npp and deficit varies when moving along the transect from west to east. 
+
+```javascript
+
+
+//the nppImage has some 'gaps'(the mask), we'll need to set those values to zero: 
+var nppwzero = nppImage.unmask(0);
+
+// now, we add explicit coordinates to the npp and deficit images, so that we can then link them to the transect coordinates. 
+// Define a pixel coordinate image and add it to our two images of interest
+var latLonImg = ee.Image.pixelLonLat();
+var nppImage = nppwzero.addBands(latLonImg);
+var meandeficitImage = meandeficit.addBands(latLonImg);
+
+// Now we can summarize (Reduce) npp and coordinate bands by transect line; get a dictionary with
+// band names as keys, pixel values as lists.
+var nppTransect = nppImage.reduceRegion({
+  reducer: ee.Reducer.toList(),
+  geometry: transect,
+  scale: 1000,
+});
+
+print(nppTransect);
+
+
+
+var deficitTransect = meandeficitImage.reduceRegion({
+  reducer: ee.Reducer.toList(),
+  geometry: transect,
+  scale: 1000,
+});
+
+print(deficitTransect);
+
+
+
+
+//OK, so far so good: now we have two objects containing lists of deficits, npp and coordinates: once we sort them, we can plot them: 
+// Define the chart and print it to the console.
+// Get longitude and elevation value lists from the reduction dictionary.
+var lon = ee.List(deficitTransect.get('longitude'));
+var lat = ee.List(deficitTransect.get('latitude'));
+var deficitlist = ee.List(deficitTransect.get('def_mean'));
+var npplist = ee.List(nppTransect.get('annualNPP'));
+
+
+// Sort the longitude and elevation values by ascending longitude.
+var lonSort = lon.sort(lon);
+var latSort = lat.sort(lat);
+var deficitSort = deficitlist.sort(lonSort);
+var nppSort = npplist.sort(lonSort);
+
+var chart = ui.Chart.array.values({array: deficitSort, axis: 0, xLabels: lonSort})
+                .setOptions({
+                  title: 'deficit Profile Across Longitude',
+                  hAxis: {
+                    title: 'Longitude',
+                    viewWindow: {min: -122.7, max: -120.1},
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  vAxis: {
+                    title: 'deficit (mm)',
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  colors: ['1d6b99'],
+                  lineSize: 3,
+                  pointSize: 0,
+                  legend: {position: 'none'}
+                });
+print(chart);
+var chart = ui.Chart.array.values({array: nppSort, axis: 0, xLabels: lonSort})
+                .setOptions({
+                  title: 'npp Profile Across Longitude',
+                  hAxis: {
+                    title: 'Longitude',
+                    viewWindow: {min: -122.7, max: -120.1},
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  vAxis: {
+                    title: 'NPP ',
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  colors: ['1d6b99'],
+                  lineSize: 3,
+                  pointSize: 0,
+                  legend: {position: 'none'}
+                });
+print(chart);
+
+
+Map.addLayer(transect, {color: 'FF0000'}, 'transect');
+
+
+```
