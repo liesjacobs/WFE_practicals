@@ -27,7 +27,7 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 | Dimension description | SRTM DEM, TerraClimate, NPP from LANDSAT |
 
 
-
+==> For the purpose of this exercise, we'll further simplify: We'll start with simply investigating the relationship between water-deficit and primary production
 
 > step 2: Define the spatial unit, and import the relevant layers
 
@@ -47,8 +47,11 @@ Now, we can import the Image(collections). We'll start with an easy one: the SRT
 
 ```javascript
 // Now we can import the Image(collections)
-var SRTMDEM = ee.Image('CGIAR/SRTM90_V4');
-var elevation = SRTMDEM.select('elevation');
+var var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
+                  .filter(ee.Filter.date('2017-07-01', '2017-08-01'));
+//we can directly use the climate water deficit proposed:
+var deficit = climateset.select('def');
 ```
 
-Do you understand this last line? If this is cryptic: try print(SRTMDEM); to print the information on this Image to the console, this might clarify this last line of code. 
+Do you understand this last line? If this is cryptic: try print(climateset); to print the information on this Image to the console, this might clarify this last line of code. 
+
