@@ -25,4 +25,22 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 
 > step 2: Define the spatial unit, and import the relevant layers
 
+The spatial unit in our case is a 'Line': we can define this using the function ee.Geometry.LineString, which just needs the beginning and end coordinates as (LONG,LAT) pairs. 
 
+Next, we can plot the transect on the map. 
+
+```javascript
+// defining the variable 'transect' as the gradient we want to investigate:  
+var transect = ee.Geometry.LineString([[-123, 46], [-120, 46]]);
+Map.addLayer(transect, {color: 'FF0000'}, 'transect');
+```
+
+Now, we can import the Image(collections). We'll start with an easy one: the SRTM DEM
+
+```javascript
+// Now we can import the Image(collections)
+var SRTMDEM = ee.Image('CGIAR/SRTM90_V4');
+var elevation = SRTMDEM.select('elevation');
+```
+
+Do you understand this last line? If this is cryptic: try print(SRTMDEM); to print the information on this Image to the console, this might clarify this last line of code. 
