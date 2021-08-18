@@ -1,11 +1,11 @@
 ### Exercise 3: Understanding the Gradient : how process influences form
 
 In this exercise we will actually *use* data from earth engine to gain insight in a real-life question: 
-How can we explain the remarkable gradient in land cover (and related agricultural practices) along the West-Coast of the USA (see slides 32-33 course 1)
+How can we explain the remarkable gradient in land cover (and related agricultural practices) along the West-Coast of the USA (see slides 32-33 course 1)¬
 
 
 
-> step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects)
+> step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects)¬
 
 
 
@@ -15,18 +15,18 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 - what is the temporal scale we will work on
 - What are the boundary conditions or assumptions
 - Which dimensions will we take into account (which processes will we consider)
-- How will we describe the dimensions
+- How will we describe the dimensions¬
 
 
 | building block  |  decision |
 |---|---|
 | Geographic scale |  Transect (line) |
-| temporal scale |  Long term average (at least year-based), and all data input should span same timespan |
-| Assumption | 'Greenness' of the land directly depends on the water deficit (or, the comparison of PET with precipitation)  |
-| Dimensions | We'll consider water deficit as independent variable, NPP as dependent variable |
-| Dimension description | TerraClimate for the deficit, NPP from MODIS Imagery |
+| temporal scale |  all data input should span same timespan |
+| Assumption | The different landcovers on such a short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
+| Dimensions | We'll winter and summer temperature and yearly precipitation |
+| Dimension description | LANDSAT band 10 for temperature, CHIRPS for precipitation, a local DEM for topography |
 
-
+¬
 
 
 > step 2: Define the spatial unit, and import the relevant layers
@@ -35,192 +35,133 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 
 The spatial unit in our case is a 'Line': we can define this using the function ee.Geometry.LineString, which just needs the beginning and end coordinates as (LONG,LAT) pairs. 
 
-Next, we can plot the transect on the map. 
+Next, we can plot the transect on the map. ¬
 
 ```javascript
 // defining the variable 'transect' as the gradient we want to investigate:  
-var transect = ee.Geometry.LineString([[-123, 46], [-120, 46]]);
+var endpoint = [-118.821944, 46.527222];
+var startpoint = [-123.416667, 46.783333];
+var transect = ee.Geometry.LineString([endpoint, startpoint]);
 Map.addLayer(transect, {color: 'FF0000'}, 'transect');
 ```
 
-Now, we can import the Image(collections): the NPP from MODIS satellite and the water Deficit from the Terraclimate project
+Now, we can import the Image(collections) we need
 
 ```javascript
+// Get brightness temperature data for 1 year: se select band 10 of landsat8, convert kelvin to celcius and define the dates of aquisition
+var landsat8Toa = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA');
+var temperature = landsat8Toa.filterBounds(transect)
+    .select(['B10'], ['temp'])
+    .map(function(image) {
+      // Kelvin to Celsius.
+      return image.subtract(273.15)
+          .set('system:time_start', image.get('system:time_start'));
+    });
+    
+//import elevation:
+var elevation = ee.Image('USGS/NED');  // Extract the elevation profile.
 
-var NPP = ee.ImageCollection('UMT/NTSG/v2/MODIS/NPP')
-                  .filter(ee.Filter.date('2017-01-01', '2017-12-31'));
-var npp = NPP.select('annualNPP');
-var nppVis = {
-  min: 0.0,
-  max: 20000.0,
-  palette: ['bbe029', '0a9501', '074b03'],
-};
-Map.addLayer(npp, nppVis, 'NPP');
-//Because npp is an imagecollection (consisting of only 1 image) we want to select -and continue with -  only that image: 
-var nppImage = npp.first();
+// let's add precipitation ass well (mm/pentad, or mm/5days), similar as temperature
+var chirps = ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD");
+var chirpsprecip = chirps.filterBounds(transect)
+    .select(['precipitation'], ['previp'])
+    .set('system:time_start', chirps.get('system:time_start'));
+    
+```
 
+> step 3: prepare the data for plotting on a graph
 
-var climateset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
-                  .filter(ee.Filter.date('2017-01-01', '2017-12-31'));
-//we can directly use the climate water deficit (one of the bands):
-var deficit = climateset.select('def');
-print(deficit);
+Now that we have all the image(collections), we can 'reduce' the data, so that we have the winter and summer temperature along the transect, the total precipitation and the topography, and we can combine all this data into one *new image*. 
 
+```javascript
+//selecting a year worth of data for CHIRPS and sum all the data (so total yearly precipitation)
+var chirpsprecipselect = chirpsprecip.filterDate('2014-01-01', '2014-12-31')
+                          .reduce(ee.Reducer.sum())
+                          .select([0], ['yearprec']);
+                          
+// Calculate bands for seasonal temperatures and elevations; c
+var summer = temperature.filterDate('2014-06-21', '2014-09-23')
+    .reduce(ee.Reducer.mean())
+    .select([0], ['summer']);
+var winter = temperature.filterDate('2013-12-21', '2014-03-20')
+    .reduce(ee.Reducer.mean())
+    .select([0], ['winter']);
+
+//join all the data into one new image: 
+// we first make a list describing the distance from the startingpoint:
+var startingPoint = ee.FeatureCollection(ee.Geometry.Point(startpoint));
+var distance = startingPoint.distance(450000);
+//now we add all the bands to the distance list:
+var image = distance.addBands(elevation).addBands(winter).addBands(summer).addBands(chirpsprecipselect);
 
 ```
 
-**print(deficit) function gives you an overview of the content of the ImmageCollection 'deficit'. How many images (features) are in the Immagecollection, why? Does the npp variable have the same amount of images?**
 
 
-
-Indeed, we'll have to somehow summarize the information of the images in 'deficit' to obtain one image. Luckily, there is a [function](https://developers.google.com/earth-engine/guides/reducers_image_collection) that helps us.
-
+OK: now we have all ingredients to sort the information and plot it all in one chart 
 
 ```javascript
-var meandeficit = deficit.reduce(ee.Reducer.mean());
-Map.addLayer(meandeficit, {min: 0, max: 3000}, 'deficit');
+// Extract band values along the transect line: convert the image information into an array (list).
+var array = image.reduceRegion(ee.Reducer.toList(), transect, 1000)
+                 .toArray(image.bandNames());
+
+// Sort points along the transect by their distance from the starting point.
+var distances = array.slice(0, 0, 1);
+array = array.sort(distances);
+
+// Create arrays for plotting in a figure.
+var elevationAndTempAndPrecip = array.slice(0, 1);  // For the Y axis.
+// Project distance slice to create a 1-D array for x-axis values.
+var distance = array.slice(0, 0, 1).project([1]);
+
+
 ```
+> step 3: prepare the data for plotting on a graph  
 
-
-
-
-
-> step 3: Plot the values of the dependent and independent variables along the transect
-
-Now that we have the data, we can make a plot showing how npp and deficit varies when moving along the transect from west to east. 
 
 ```javascript
+// Generate and style the chart.
+var chart = ui.Chart.array.values(elevationAndTempAndPrecip, 1, distance)
+    .setChartType('LineChart')
+    .setSeriesNames(['Elevation', 'Winter 2014', 'Summer 2014', 'Precipitation 2014'])
+    .setOptions({
+      title: 'Elevation, temperatures and precipitation along transect',
+      vAxes: {
+        0: {
+          title: 'Average seasonal temperature (Celsius)'
+        },
+        1: {
+          title: 'Elevation (meters, blue) or precipitation (mm, Green)',
+          baselineColor: 'transparent'
+        }
+      },
+      hAxis: {
+        title: 'Distance from starting points (m)'
+      },
+      interpolateNulls: true,
+      pointSize: 0,
+      lineWidth: 1,
+      // Our chart has two Y axes: one for temperature and one for elevation/precip.
+      // Y axis, which we do here:
+      series: {
+        0: {targetAxisIndex: 1},
+        1: {targetAxisIndex: 0},
+        2: {targetAxisIndex: 0}, 
+        3: {targetAxisIndex: 1},
+      }
+    });
 
-
-//the nppImage has some 'gaps'(the mask), we'll need to set those values to zero: 
-var nppwzero = nppImage.unmask(0);
-
-// now, we add explicit coordinates to the npp and deficit images, so that we can then link them to the transect coordinates. 
-// Define a pixel coordinate image and add it to our two images of interest
-var latLonImg = ee.Image.pixelLonLat();
-var nppImage = nppwzero.addBands(latLonImg);
-var meandeficitImage = meandeficit.addBands(latLonImg);
-
-// Now we can summarize (Reduce) npp and coordinate bands by transect line; get a dictionary with
-// band names as keys, pixel values as lists.
-var nppTransect = nppImage.reduceRegion({
-  reducer: ee.Reducer.toList(),
-  geometry: transect,
-  scale: 1000,
-});
-
-print(nppTransect);
-
-
-
-var deficitTransect = meandeficitImage.reduceRegion({
-  reducer: ee.Reducer.toList(),
-  geometry: transect,
-  scale: 1000,
-});
-
-print(deficitTransect);
-
-
-
-
-//OK, so far so good: now we have two objects containing lists of deficits, npp and coordinates: once we sort them, we can plot them: 
-// Define the chart and print it to the console.
-// Get longitude and elevation value lists from the reduction dictionary.
-var lon = ee.List(deficitTransect.get('longitude'));
-var lat = ee.List(deficitTransect.get('latitude'));
-var deficitlist = ee.List(deficitTransect.get('def_mean'));
-var npplist = ee.List(nppTransect.get('annualNPP'));
-
-
-// Sort the longitude and elevation values by ascending longitude.
-var lonSort = lon.sort(lon);
-var latSort = lat.sort(lat);
-var deficitSort = deficitlist.sort(lonSort);
-var nppSort = npplist.sort(lonSort);
-
-var chart = ui.Chart.array.values({array: deficitSort, axis: 0, xLabels: lonSort})
-                .setOptions({
-                  title: 'deficit Profile Across Longitude',
-                  hAxis: {
-                    title: 'Longitude',
-                    viewWindow: {min: -122.7, max: -120.1},
-                    titleTextStyle: {italic: false, bold: true}
-                  },
-                  vAxis: {
-                    title: 'deficit (mm)',
-                    titleTextStyle: {italic: false, bold: true}
-                  },
-                  colors: ['1d6b99'],
-                  lineSize: 3,
-                  pointSize: 0,
-                  legend: {position: 'none'}
-                });
 print(chart);
-var chart = ui.Chart.array.values({array: nppSort, axis: 0, xLabels: lonSort})
-                .setOptions({
-                  title: 'npp Profile Across Longitude',
-                  hAxis: {
-                    title: 'Longitude',
-                    viewWindow: {min: -122.7, max: -120.1},
-                    titleTextStyle: {italic: false, bold: true}
-                  },
-                  vAxis: {
-                    title: 'NPP ',
-                    titleTextStyle: {italic: false, bold: true}
-                  },
-                  colors: ['1d6b99'],
-                  lineSize: 3,
-                  pointSize: 0,
-                  legend: {position: 'none'}
-                });
-print(chart);
-
-
-Map.addLayer(transect, {color: 'FF0000'}, 'transect');
-
+Map.setCenter(-121, 46, 7);
+Map.addLayer(elevation, {min: 4000, max: 0});
+Map.addLayer(transect, {color: 'FF0000'});
 
 ```
-> Step 4: could we try to confine the relationship? 
-
-From the plots (charts) we have build, a clear relationship is not evident. Can we clarify the relationship by making a scatterplot? 
-
-
-```javascript
-/// can we make a scatterplot?
-
-
-var chart = ui.Chart.array.values({array: deficitSort, axis: 0, xLabels: nppSort})
-                .setSeriesNames(['npp-deficit'])
-                .setOptions({
-                  title: 'Relationship between npp and deficit',
-                  colors: ['1d6b99'],
-                  pointSize: 4,
-                  dataOpacity: 0.4,
-                  hAxis: {
-                    'title': 'deficit',
-                    titleTextStyle: {italic: false, bold: true}
-                  },
-                  vAxis: {
-                    'title': 'npp',
-                    titleTextStyle: {italic: false, bold: true}
-                  }
-                });
-print(chart);
-
-//if we want to build a regression, we first will have to combine both the deficitSort list, and the nppsort list
-// for this we need to build a function
-
-var combinations = ee.List(
-  deficitSort.iterate(function (e1, acc) {
-    var pairs = nppSort.map(function (e2) {
-      return [e1, e2]
-    })
-    return ee.List(acc).cat(pairs)
-  }, ee.List([]))
-)
 
 
 
+*Note that you can click on the small arrow on the right upper corner of your graph to maximize the window
 
-```
+##**Congrats: you can now analyze multiple layers at the same time on the same graph: is the result what you expected**? 
+
+
