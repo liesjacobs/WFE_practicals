@@ -23,4 +23,6 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 | Dimension description | SRTM DEM, worldClim dataset on P and T, NPP from LANDSAT |
 
 
+> step 2: Define the spatial unit, and import the relevant layers
+
 
