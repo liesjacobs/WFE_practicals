@@ -17,9 +17,9 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 | building block  |  decision |
 |---|---|
 | Geographic scale |  Transect (line) |
-| temporal scale |  Long term average (at least year-based) |
-| Assumption | we'll consider local effects of climate and geomorphology on land cover  |
-| Dimensions | we'll consider topography, precipitation and temperature as independent variables, NPP as dependent variable |
+| temporal scale |  Long term average (at least year-based), and all data input should span same timespan |
+| Assumption | 'Greenness' of the land directly depends on the water deficit (or, the comparison of PET with precipitation) , which in turn depends on rainfall and Potential evapotranspiration (thus Temperature), which in turn is determined by a strong topographic boundary (the mountain range) |
+| Dimensions | We'll consider water deficit independent variables, NPP as dependent variable |
 | Dimension description | SRTM DEM, worldClim dataset on P and T, NPP from LANDSAT |
 
 
