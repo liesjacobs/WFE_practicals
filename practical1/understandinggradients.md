@@ -181,3 +181,46 @@ Map.addLayer(transect, {color: 'FF0000'}, 'transect');
 
 
 ```
+> Step 4: could we try to confine the relationship? 
+
+From the plots (charts) we have build, a clear relationship is not evident. Can we clarify the relationship by making a scatterplot? 
+
+
+```javascript
+/// can we make a scatterplot?
+
+
+var chart = ui.Chart.array.values({array: deficitSort, axis: 0, xLabels: nppSort})
+                .setSeriesNames(['npp-deficit'])
+                .setOptions({
+                  title: 'Relationship between npp and deficit',
+                  colors: ['1d6b99'],
+                  pointSize: 4,
+                  dataOpacity: 0.4,
+                  hAxis: {
+                    'title': 'deficit',
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  vAxis: {
+                    'title': 'npp',
+                    titleTextStyle: {italic: false, bold: true}
+                  }
+                });
+print(chart);
+
+//if we want to build a regression, we first will have to combine both the deficitSort list, and the nppsort list
+// for this we need to build a function
+
+var combinations = ee.List(
+  deficitSort.iterate(function (e1, acc) {
+    var pairs = nppSort.map(function (e2) {
+      return [e1, e2]
+    })
+    return ee.List(acc).cat(pairs)
+  }, ee.List([]))
+)
+
+
+
+
+```
