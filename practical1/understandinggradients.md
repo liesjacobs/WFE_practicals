@@ -71,6 +71,6 @@ Map.addLayer(deficit, {min: 0, max: 3000}, 'deficit');
 
 
 
-Indeed, we'll have to somehow summarize the information of the images in 'deficit' to obtain one image. Luckily, there is a [function](https://developers.google.com/earth-engine/images/Reduce_ImageCollection.png) that helps us.
+Indeed, we'll have to somehow summarize the information of the images in 'deficit' to obtain one image. Luckily, there is a [function](https://developers.google.com/earth-engine/guides/reducers_image_collection) that helps us.
 
 
