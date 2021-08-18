@@ -79,3 +79,7 @@ Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 #### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
 
 The one for the map.addlayer function can be found [here](https://developers.google.com/earth-engine/apidocs/map-addlayer)
+
+
+
+<p style="color:blue;"><p style="font-weight:bolder;">Question 1.6. Try clicking on the biome map below: what happens to the 'Inspector'  </p></p>
