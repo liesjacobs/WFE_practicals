@@ -86,6 +86,12 @@ print(myHelloFunction('world'));
 
 ```
 
+
+<p style="color:blue;">You can change the text color of a whole sentence or paragraph...</p>
+<p>...or you can change the text color of one <span style="color:green;">word</span> or even a single l<span style="color:red;">e</span>tter.</p>
+
+
+
 In this course, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
 
 
