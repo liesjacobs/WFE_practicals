@@ -98,3 +98,17 @@ In this course, you won't have to write code yourself: we'll simply adjust exist
 But now that you know the basics, let's explore its functionalities: 
 [![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://github.com/liesjacobs/World-Food-and-Ecosystems/practical1/exploring.md)
 
+
+
+
+<nav>
+  <ul>
+    <li><strong>Home</strong></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="clients.html">Our Clients</a></li>
+    <li><a href="products.html">Our Products</a></li>
+    <li><a href="services.html">Our Services</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</nav>
+
