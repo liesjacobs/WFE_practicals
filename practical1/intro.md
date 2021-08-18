@@ -87,8 +87,7 @@ print(myHelloFunction('world'));
 ```
 
 
-<p style="color:blue;">You can change the text color of a whole sentence or paragraph...</p>
-<p>...or you can change the text color of one <span style="color:green;">word</span> or even a single l<span style="color:red;">e</span>tter.</p>
+<p style="color:blue;">Question 1.1. In this last function, what is the input that the function needs? </p>
 
 
 
