@@ -164,4 +164,11 @@ Map.addLayer(transect, {color: 'FF0000'});
 
 ##**Congrats: you can now analyze multiple layers at the same time on the same graph: is the result what you expected**? 
 
-
+<nav>
+  <ul>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 3</a></li>
+      <li><strong>Practical 1: exercise 3</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+  </ul>
+</nav>
