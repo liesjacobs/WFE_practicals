@@ -83,3 +83,15 @@ The one for the map.addlayer function can be found [here](https://developers.goo
 
 
 <p style="color:blue;"><p style="font-weight:bolder;">Question 1.6. Try clicking on the biome map below: what happens to the 'Inspector'  </p></p>
+
+
+Now that you know the basic functionalities of the GUI, let's try an actual [application](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html). 
+<nav>
+  <ul>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
+    <li><strong>Practical 1: exercise 2</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+  </ul>
+</nav>
+
