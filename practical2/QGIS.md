@@ -56,4 +56,19 @@ https://user-images.githubusercontent.com/89069805/131486341-0bc9bec4-4229-4959-
 
 
 
+**
+We now have a scatterplot, but the statistical tools to analyse these data in QGIS are limited. So, let's try to import this data into Rstudio and build a simple . [statistical regression](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/Rstudio.html): loading all the data in to QGIS and starting the analysis**
+
+<nav>
+  <ul>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html">Practical 2: exercise 1</a></li>
+    <li><strong>Practical 2: exercise 2</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/Rstudio.html">Practical 2: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+  </ul>
+</nav>
+
 
