@@ -55,3 +55,29 @@ https://user-images.githubusercontent.com/89069805/131489891-e0210044-50ad-4361-
 The plot is a bit ugly, so we can pimp it, and also plot the regression line. 
 Copy paste the code below and execute it yourself: 
 
+```{r setup, include=FALSE}
+# this is the file where we will list the commands needed for the analysis
+# using a hashtag = comments 
+
+# now we can build simple code, to do some analysis
+
+#cleaning data
+attributesNDVI_Richness<-na.omit(attributesNDVI_Richness)
+attach(attributesNDVI_Richness)
+
+# first, let's plot
+library(scales) # if you get an error here, first install package 'scales' using install.packages('scales')
+plot(NDVImean, richnessme, xlab = "NDVI", ylab = "Mammal richness", col=alpha("green",0.3), pch = 16)
+
+# then build a regression: 
+regression <- lm(richnessme~NDVImean, data = attributesNDVI_Richness)
+summary(regression)
+
+
+# plot regression line on scatterplot
+abline(regression, col="black", lwd=2)
+
+text(1000,150, paste("r squared is ", round(summary(regression)$r.squared,2)))
+text(1000,140, paste("p-value of NDVI is ", summary(regression)$coefficients[8]))
+
+```
