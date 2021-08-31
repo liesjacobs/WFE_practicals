@@ -19,3 +19,11 @@ Now we get to the core objective of the exercise: what is the link between biodi
 * Dimensions (which processes and structures will you account for, which not)
 * Dimension descriptions (how do you approximate/describe the dimension)
 
+Of course, for the purpose of this exercise, these decisions have already been taken, and are summarized here: 
+| building block  |  decision |
+|---|---|
+| Geographic scale |  Watersheds |
+| temporal scale |  similar timespans need to be covered and aggregated over sufficiently large timespan |
+| Assumption | more primary producers = more available energy, resulting into a higher biodiversity |
+| Dimensions | We'll consider vegetation cover and mammal biodiversity |
+| Dimension description | MODIS NDVI (as proxy for vegetation) and mammal species richness by biodiversity.org |
