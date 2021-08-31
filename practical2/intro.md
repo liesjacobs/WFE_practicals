@@ -144,7 +144,8 @@ Unzip where needed, and put all information in one folder, similar to the exampl
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
     <li><strong>Practical 2: exercise 1</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 1: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 2: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/RStudio.html">Practical 2: exercise 3</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
