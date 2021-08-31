@@ -20,6 +20,8 @@ Now we get to the core objective of the exercise: what is the link between biodi
 * Dimension descriptions (how do you approximate/describe the dimension)
 
 Of course, for the purpose of this exercise, these decisions have already been taken, and are summarized here: 
+
+
 | building block  |  decision |
 |---|---|
 | Geographic scale |  Watersheds |
