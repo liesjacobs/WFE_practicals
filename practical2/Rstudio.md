@@ -81,3 +81,8 @@ text(1000,150, paste("r squared is ", round(summary(regression)$r.squared,2)))
 text(1000,140, paste("p-value of NDVI is ", summary(regression)$coefficients[8]))
 
 ```
+
+
+After the execution, you should get something like this: 
+
+![example](https://user-images.githubusercontent.com/89069805/131496702-b8d0af27-b702-4175-8525-1ce44975cc2b.png)
