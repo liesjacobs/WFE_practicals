@@ -1,11 +1,11 @@
 # Welcome to the Second practical. 
 
-In this practical we will be using a combination of Google Earth Engine-QGIS-R to understand global biodiversity patterns. No need to worry, we'll tackle it step by step. It is however essential that you found your way trough the [first practical] (https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html) as we will start with getting (some of our) data there. 
+In this practical we will be using a combination of Google Earth Engine-QGIS-R to understand global biodiversity patterns. No need to worry, we'll tackle it step by step. It is however essential that you found your way trough the [first practical](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html) as we will start with getting (some of our) data there. 
 
 ## Step 1: Required softwares and datasets: overview
 
 ###**Softwares** 
-As mentioned on the [starting page] (https://liesjacobs.github.io/World-Food-and-Ecosystems/), you'll need QGIS, Rstudio and a working account for [code editor](code.earthengine.google.com/).
+As mentioned on the [starting page](https://liesjacobs.github.io/World-Food-and-Ecosystems/), you'll need QGIS, Rstudio and a working account for [code editor](code.earthengine.google.com/).
 
 ###**Datasets**
 
@@ -24,82 +24,77 @@ We'll use following datasets:
 The easiest dataset to access is the raster file for Mammal Species Richness: just clicking on the link in the table should result in an immediate download of a ZIP file. Unpacking this gives you access to a raster file. 
 
 For the two other maps we can use Google Earth Engine to access them. 
-The Google Earth Engine interface, as you see it above, runs on JavaScript. It might seem scary to be confronted with a new (and at times cryptic) language, but no worries: we'll go step by step. 
 
-To access, explore and use Google Earth Engine, only a basic understanding of JavaScript suffices. As we saw in class, the basic building blocks of writing code (in python, R, Javascript...) is (i) the identification of the necessary variables, (ii) the identification of the appropriate functions, (iii) understanding which input parameters these functions require. 
+We'll start with visualizing and downloading the NDVI map: Google Earth Engine allow to upload any *Image* you make to your google drive: once on your drive, you can download it from there. 
 
-Of course, although the building blocks are similar, the syntax can differ quite a bit. Some key tips and tricks for JavaScript are listed here (source: <a href="https://docs.google.com/document/d/1ZxRKMie8dfTvBmUNOO0TFMkd7ELGWf3WjX0JvESZdOE/edit" target="_blank">Earth Engine 101 Beginner's Curriculum</a>.)
-
+The whole google earth engine code is here below, with each of the lines commented: make sure you understand what all the different parts are for, what they do, and try to execute the code yourself using your own google earth engine account: 
 
 ```javascript
 
-// Line comments start with two forward slashes. Like this line.
+/// we define the area for which we want to download data:
+var clip = 
+    ee.Geometry.Polygon(
+        [[[-180, 60],
+          [-180, -60],
+          [180, -60],
+          [180, 60]]], null, false);
 
-/* Multi-line comments start with a forward slash and a star,
-and end with a star and a forward slash. */
-```
 
-Variables are used to store objects and are defined using the keyword **var**.
-```javascript
+/// we define the dataset (ImageCollection) we are interested in, and already filter a few years from it:
+var dataset = ee.ImageCollection('MODIS/006/MOD13A2')
+                  .filter(ee.Filter.date('2015-01-01', '2018-12-31'));
+                  
+/// the MODIS image collection we just defined contained much more than only NDVI. We can check what is in this dataset by using *print*:
+print(dataset);
+// the info on what is in the datset now appears in the console, where you can click on the item and explore
 
-var theAnswer = 42;
-```
-string objects start and end with a single quote
-```javascript
-var myVariable = 'I am a string';
 
-// string objects can also use double quotes, but don't mix and match
-var myOtherVariable = "I am also a string";
-```
+/// so let's just select NDVI
+var ndvi = dataset.select('NDVI');
+print(ndvi);
+// you can see in the console, that it is still an image collection, because it contains one NDVI image per 16 days!
 
-```javascript
-Statements should end in a semi-colon, or the editor complains.
+// so we'll have to take the average over the whole set:
+var mean = ndvi.reduce(ee.Reducer.mean());
+print(mean);
+// indeed: taking the average *reduces* the image collection to an Image: this we can export to our drive
+// but... let's first visualize:-)
 
-var test = 'I feel incomplete...'
-var test2 = 'I feel complete!';
-```
 
-Passing function parameters and using lists: 
-```javascript
-// Parentheses are used to pass parameters to functions
-print('This string will print in the Console tab.');
-
-/* Square brackets are used for items in a list.
-The zero index refers to the first item in a list*/
-var myList = ['eggplant','apple','wheat'];
-print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0 (and not from 1, like R)
-```
-
-Using dictionaries
-```javascript
-
-// Curly brackets (or braces) can be used to define dictionaries (key:value pairs).
-var myDict = {'food':'bread', 'color':'red', 'number':42};
-
-// Square brackets can be used to access dictionary items by key.
-print(myDict['color']);
-
-//Or you can use the dot notation to get the same result.
-print(myDict.color);
-```
-
-Functions can be defined as a way to reuse code and make it easier to read.
-```javascript
-var myHelloFunction = function(string) {
-  return 'Hello ' + string + '!';
+// define the minimum, maximum and the colour pallette: 
+var ndviVis = {
+  min: -1000,
+  max: 9000.0,
+  palette: [
+    'FFFFFF', 'CE7E45', 'DF923D', 'F1B555', 'FCD163', '99B718', '74A901',
+    '66A000', '529400', '3E8601', '207401', '056201', '004C00', '023B01',
+    '012E01', '011D01', '011301'
+  ],
 };
-print(myHelloFunction('world'));
+
+//center the map, and add the ndvi map: 
+Map.setCenter(6.746, 46.529, 2);
+Map.addLayer(ndvi, ndviVis, 'NDVI');
 
 
 
+
+// Export our 'mean' to your google drive: we have to define the region (clip), the scale: here we take 5km at the equator, and give it a name
+Export.image.toDrive({
+  image: mean,
+  description: 'meanNDVI_MODIS',
+  scale: 5000,
+  region: clip,
+  fileFormat: 'GeoTIFF'
+});
+// after running this it should appear in your 'tasks' here to the right: click on 'run'
 ```
+After running this code, a geo-tiff file (type of raster file) should load in your google drive: from here you can download it to your PC:-). 
 
 
-<p style="color:blue;" "font-weight:bolder;">Question 1.1. In this last function, what is the input that the function needs? </p>
 
 
 
-In this course, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
 
 
 But now that you know the basics, let's explore its functionalities: 
