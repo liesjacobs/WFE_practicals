@@ -45,11 +45,15 @@ Our vector file now has two extra attribute columns: mean NDVI and mean mammal r
 
 ### Can we now visualize this relationship? 
 
+* we are particularly interested in how mammal richness depends on NDVI, or Richness~f(NDVI)
 * QGIS (and many others) are typically used for visualization and analysis of geographic (spatial) data
 * But, some basic analytic figures can be made as well, e.g. a Scatterplot: 
 
+https://user-images.githubusercontent.com/89069805/131486341-0bc9bec4-4229-4959-b910-5bd0cefebecd.mp4
 
 
-https://user-images.githubusercontent.com/89069805/131485805-9f4a6e92-9cd7-4e7c-a743-3c327c759505.mp4
+
+
+
 
 
