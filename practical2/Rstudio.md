@@ -6,7 +6,7 @@ Luckily, that's quite straightforward:
 
 
 
-https://user-images.githubusercontent.com/89069805/131488102-a2af993b-a7ee-4960-811a-aca4acb6df4f.mp4
+![export](https://user-images.githubusercontent.com/89069805/131488102-a2af993b-a7ee-4960-811a-aca4acb6df4f.mp4)
 
 
 
@@ -55,7 +55,7 @@ https://user-images.githubusercontent.com/89069805/131489891-e0210044-50ad-4361-
 The plot is a bit ugly, so we can pimp it, and also plot the regression line. 
 Copy paste the code below and execute it yourself: 
 
-```{r, setup, include=FALSE}
+```r
 # this is the file where we will list the commands needed for the analysis
 # using a hashtag = comments 
 
