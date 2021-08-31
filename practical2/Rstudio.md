@@ -6,7 +6,10 @@ Luckily, that's quite straightforward:
 
 
 
-![export](https://user-images.githubusercontent.com/89069805/131488102-a2af993b-a7ee-4960-811a-aca4acb6df4f.mp4)
+https://user-images.githubusercontent.com/89069805/131507742-01689c6d-726c-4cfa-9853-ea126a24a054.mp4
+
+
+
 
 
 
