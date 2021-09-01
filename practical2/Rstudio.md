@@ -9,7 +9,6 @@ Luckily, that's quite straightforward:
 Your browser does not support the video tag.
 </video>
 
-https://user-images.githubusercontent.com/89069805/131507742-01689c6d-726c-4cfa-9853-ea126a24a054.mp4
 
 
 
@@ -32,9 +31,11 @@ We now have to do two things:
 
 ### Importing the .csv file we just made
 
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131488949-4c653f75-fd4a-4cb1-b619-feae62826521.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
-
-https://user-images.githubusercontent.com/89069805/131488949-4c653f75-fd4a-4cb1-b619-feae62826521.mp4
 
 
 Depending on the settings of your PC, you might need to adjust the decimal notation, or the seperator. 
@@ -46,16 +47,20 @@ If all is well, you now see the attribute information in the environment.
 
 Now we can start analyzing the data. The first thing you need to do is build an empty R file where you will later put the commands you'll use for analysis. 
 
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131489386-bf1b4aee-c1bc-42d3-a1fa-afc8397c0b7e.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
-
-https://user-images.githubusercontent.com/89069805/131489386-bf1b4aee-c1bc-42d3-a1fa-afc8397c0b7e.mp4
 
 
 
 We can add simple code, as illustrated in the video below 
 
-
-https://user-images.githubusercontent.com/89069805/131489891-e0210044-50ad-4361-9fea-1b8e095dbbc7.mp4
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131489891-e0210044-50ad-4361-9fea-1b8e095dbbc7.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 
 The plot is a bit ugly, so we can pimp it, and also plot the regression line. 
