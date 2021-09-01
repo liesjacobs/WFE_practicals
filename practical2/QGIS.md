@@ -2,9 +2,11 @@
 
 Now that we have all the data in our folder, we can open QGIS and load the vector (shapefile) of the watersheds, and the two rasterfiles (the biodiversity tif and the NDVI tif files).
 
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131482487-7562b9c7-afd5-4512-8ad1-7754e3b532fb.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
-
-https://user-images.githubusercontent.com/89069805/131482487-7562b9c7-afd5-4512-8ad1-7754e3b532fb.mp4
 
 
 
@@ -38,8 +40,11 @@ Of course, for the purpose of this exercise, these decisions have already been t
 * we'll use the function *zonal statistics* in the QGIS toolbox to calculate this
 
 
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131485589-8a7ddc91-cf03-4f07-a731-8052861a1f7b.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
-https://user-images.githubusercontent.com/89069805/131485589-8a7ddc91-cf03-4f07-a731-8052861a1f7b.mp4
 
 
 
@@ -51,8 +56,11 @@ Our vector file now has two extra attribute columns: mean NDVI and mean mammal r
 * QGIS (and many others) are typically used for visualization and analysis of geographic (spatial) data
 * But, some basic analytic figures can be made as well, e.g. a Scatterplot: 
 
-https://user-images.githubusercontent.com/89069805/131486341-0bc9bec4-4229-4959-b910-5bd0cefebecd.mp4
 
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131486341-0bc9bec4-4229-4959-b910-5bd0cefebecd.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 
 
