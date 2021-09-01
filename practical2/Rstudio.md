@@ -4,7 +4,10 @@ So... we want to export the attribute data of our shapefile to a file that can b
 
 Luckily, that's quite straightforward: 
 
-
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131507742-01689c6d-726c-4cfa-9853-ea126a24a054.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 https://user-images.githubusercontent.com/89069805/131507742-01689c6d-726c-4cfa-9853-ea126a24a054.mp4
 
