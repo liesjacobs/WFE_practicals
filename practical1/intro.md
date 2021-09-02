@@ -23,6 +23,9 @@ To access, explore and use Google Earth Engine, only a basic understanding of Ja
 Of course, although the building blocks are similar, the syntax can differ quite a bit. Some key tips and tricks for JavaScript are listed here (source: <a href="https://docs.google.com/document/d/1ZxRKMie8dfTvBmUNOO0TFMkd7ELGWf3WjX0JvESZdOE/edit" target="_blank">Earth Engine 101 Beginner's Curriculum</a>.)
 
 
+
+###Commenting lines
+
 ```javascript
 
 // Line comments start with two forward slashes. Like this line.
@@ -30,6 +33,9 @@ Of course, although the building blocks are similar, the syntax can differ quite
 /* Multi-line comments start with a forward slash and a star,
 and end with a star and a forward slash. */
 ```
+
+
+###Defining variables
 
 Variables are used to store objects and are defined using the keyword **var**.
 ```javascript
@@ -43,6 +49,9 @@ var theAnswer = 42;
 theAnswer <- 42
 
 ```
+
+
+###Defining string objects
 
 string objects start and end with a single quote
 ```javascript
@@ -59,13 +68,19 @@ var test = 'I feel incomplete...' //this is wrong
 var test2 = 'I feel complete!';   //this is very okay
 ```
 
-Passing function parameters and using lists: 
+
+###Passing function parameters : 
+
+
 ```javascript
 // Parentheses are used to pass parameters to functions
 print('This string will print in the Console tab.');
 ```
 
-building a vector or list with multple items is done with square brackets
+
+###Building a vector or list with multple items: 
+
+
 ```javascript
 The zero index refers to the first item in a list*/
 var myList = ['eggplant','apple','wheat'];
@@ -83,7 +98,7 @@ print(myList[1]);
 ![1 iJhMo_FJ6ka70UU1t_h1eQ](https://user-images.githubusercontent.com/89069805/131823648-e8b56e95-6d58-426d-b5c0-3cf7c786eb1d.png)
 
 
-Using dictionaries
+###Using dictionaries
 ```javascript
 
 // Curly brackets (or braces) can be used to define dictionaries (key:value pairs).
@@ -96,7 +111,12 @@ print(myDict['color']);
 print(myDict.color);
 ```
 
+
+###Functions
+
 Functions can be defined as a way to reuse code and make it easier to read.
+
+
 ```javascript
 var myHelloFunction = function(string) {
   return 'Hello ' + string + '!';
