@@ -36,6 +36,14 @@ Variables are used to store objects and are defined using the keyword **var**.
 
 var theAnswer = 42;
 ```
+
+>Note that the equivalent in R would be: 
+
+```r
+theAnswer <- 42
+
+```
+
 string objects start and end with a single quote
 ```javascript
 var myVariable = 'I am a string';
@@ -47,20 +55,33 @@ var myOtherVariable = "I am also a string";
 ```javascript
 Statements should end in a semi-colon, or the editor complains.
 
-var test = 'I feel incomplete...'
-var test2 = 'I feel complete!';
+var test = 'I feel incomplete...' //this is wrong
+var test2 = 'I feel complete!';   //this is very okay
 ```
 
 Passing function parameters and using lists: 
 ```javascript
 // Parentheses are used to pass parameters to functions
 print('This string will print in the Console tab.');
+```
 
-/* Square brackets are used for items in a list.
+building a vector or list with multple items is done with square brackets
+```javascript
 The zero index refers to the first item in a list*/
 var myList = ['eggplant','apple','wheat'];
 print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0 (and not from 1, like R)
 ```
+
+
+>Note that in R this is very similar, but slightly different as c() is used to construct lists, and R starts counting from 1 (not from zero): 
+
+```r
+myList <- c('eggplant','apple','wheat')
+print(myList[1]);
+```
+
+![1 iJhMo_FJ6ka70UU1t_h1eQ](https://user-images.githubusercontent.com/89069805/131823648-e8b56e95-6d58-426d-b5c0-3cf7c786eb1d.png)
+
 
 Using dictionaries
 ```javascript
@@ -82,9 +103,15 @@ var myHelloFunction = function(string) {
 };
 print(myHelloFunction('world'));
 
-
-
 ```
+
+>Again, this looks very similar to what it would be in R
+
+```r
+myHelloFunction <- function(string) {
+print(string);
+```
+
 
 
 <iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNFFWT0NHTEhFUU8wTkgwUFoxOUFUR1dDVS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
