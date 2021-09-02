@@ -92,8 +92,7 @@ print(myHelloFunction('world'));
 In this practical, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
 
 
-But now that you know the basics, let's explore its functionalities: 
-[![follow-me](https://github.com/liesjacobs/World-Food-and-Ecosystems/blob/gh-pages/Picture1.png)](https://liesjacobs.github.io/World-Food-and_Ecosystems/practical1/exploring.html)
+But now that you know the basics, let's explore its [functionalities](https://liesjacobs.github.io/World-Food-and_Ecosystems/practical1/exploring.html)
 
 
 
