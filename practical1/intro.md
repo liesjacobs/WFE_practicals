@@ -138,7 +138,7 @@ print(myHelloFunction('world'));
 
 ```r
 myHelloFunction <- function(string) {
-print(paste('Hello', string, '!'));
+print(paste('Hello', string, '!'))}
 ```
 
 
