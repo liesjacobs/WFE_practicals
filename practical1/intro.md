@@ -138,12 +138,24 @@ print(myHelloFunction('world'));
 
 ```r
 myHelloFunction <- function(string) {
-print(string);
+print(paste('Hello', string, '!'));
 ```
 
-To make sure you've grasped the essentials, try following quiz (note: in order to 'see the quiz' you need to login to portal.office.com with your uva account in a seperate tab). 
+
+***
+
+## Quiz
+
+1. please open [this Uva Login page](portal.office.com) and login with your student account. 
+2. Now refresh this github page
+3. fill in the quiz below
+
+
 
 <iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNFFWT0NHTEhFUU8wTkgwUFoxOUFUR1dDVS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+
+***
 
 In this practical, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
 
