@@ -1,11 +1,14 @@
 ### Exercise 3: Understanding the Gradient : how process influences form
 
 In this exercise we will actually *use* data from earth engine to gain insight in a real-life question: 
-How can we explain the remarkable gradient in land cover (and related agricultural practices) along the West-Coast of the USA (see slides 32-33 course 1)¬
+How can we explain the remarkable gradient in land cover (and related agricultural practices) along the West-Coast of the USA (see slides 32-33 course 1)
 
 
 
-> step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects)¬
+
+
+> step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects)
+
 
 
 
