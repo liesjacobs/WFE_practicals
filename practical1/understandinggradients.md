@@ -12,13 +12,19 @@ How can we explain the remarkable gradient in land cover (and related agricultur
 
 
 
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131994092-5ed947ec-1aa9-4277-bfa1-db014ac2458f.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+
 
 Now we can think about the building blocks of the analysis (see slide 45, course 1): 
 - what Geographic scale – spatial unit is appropriate
 - what is the temporal scale we will work on
 - What are the boundary conditions or assumptions
 - Which dimensions will we take into account (which processes will we consider)
-- How will we describe the dimensions¬
+- How will we describe the dimensions
 
 
 | building block  |  decision |
@@ -29,8 +35,19 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 | Dimensions | We'll winter and summer temperature and yearly precipitation |
 | Dimension description | LANDSAT band 10 for temperature, CHIRPS for precipitation, a local DEM for topography |
 
-¬
 
+>TIP: If you are looking for data, or data types, you could use the search bar above to find datasets and even examples of code to import/plot/...
+>><video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131996471-05d9d1b8-0a0f-4e1d-82da-d9cdc1ba0bd2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+
+
+
+
+
+***
 
 > step 2: Define the spatial unit, and import the relevant layers
 
@@ -38,39 +55,45 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 
 The spatial unit in our case is a 'Line': we can define this using the function ee.Geometry.LineString, which just needs the beginning and end coordinates as (LONG,LAT) pairs. 
 
-Next, we can plot the transect on the map. ¬
+Next, we can plot the transect on the map. 
 
 ```javascript
 // defining the variable 'transect' as the gradient we want to investigate:  
-var endpoint = [-118.821944, 46.527222];
+var endpoint = [-118.821944, 46.527222];  
 var startpoint = [-123.416667, 46.783333];
 var transect = ee.Geometry.LineString([endpoint, startpoint]);
-Map.addLayer(transect, {color: 'FF0000'}, 'transect');
+Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE gives to the lower panel that shows 'the map':-)
 ```
+
+
 
 Now, we can import the Image(collections) we need
 
 ```javascript
-// Get brightness temperature data for 1 year: se select band 10 of landsat8, convert kelvin to celcius and define the dates of aquisition
-var landsat8Toa = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA');
-var temperature = landsat8Toa.filterBounds(transect)
-    .select(['B10'], ['temp'])
-    .map(function(image) {
+// Get brightness temperature data for 1 year: select band 10 of landsat8, convert kelvin to celcius and define the dates of aquisition
+var landsat8Toa = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA'); //this line imports the landsat8 top-of-atmosphere (TOA) data
+var temperature = landsat8Toa.filterBounds(transect)   //here we filter for location (i.e only transect)
+    .select(['B10'], ['temp'])    //here we filter for bands: b10 and temperature
+    .map(function(image) {       //here we map, and we map based on a custum made function that simply converts Kelvin to Celcius (image.substract(273.15))
       // Kelvin to Celsius.
       return image.subtract(273.15)
           .set('system:time_start', image.get('system:time_start'));
     });
     
 //import elevation:
-var elevation = ee.Image('USGS/NED');  // Extract the elevation profile.
+var elevation = ee.Image('USGS/NED');  // elevation is here simply one image (so no image collection) because it only contains 1 acquisition (unlike landsat imagery)
 
 // let's add precipitation ass well (mm/pentad, or mm/5days), similar as temperature
-var chirps = ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD");
-var chirpsprecip = chirps.filterBounds(transect)
-    .select(['precipitation'], ['previp'])
-    .set('system:time_start', chirps.get('system:time_start'));
+var chirps = ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD"); //rainfall (from the chirps dataset) is available every 5 days: so it is an image collection
+var chirpsprecip = chirps.filterBounds(transect)  //again, we filter for location: only the transect
+    .select(['precipitation'], ['previp'])   //again, we select only the bands of interest to us
+    .set('system:time_start', chirps.get('system:time_start')); //this is a line that defines the startdate of the image collection
     
 ```
+
+
+***
+
 
 > step 3: prepare the data for plotting on a graph
 
@@ -78,11 +101,11 @@ Now that we have all the image(collections), we can 'reduce' the data, so that w
 
 ```javascript
 //selecting a year worth of data for CHIRPS and sum all the data (so total yearly precipitation)
-var chirpsprecipselect = chirpsprecip.filterDate('2014-01-01', '2014-12-31')
-                          .reduce(ee.Reducer.sum())
-                          .select([0], ['yearprec']);
+var chirpsprecipselect = chirpsprecip.filterDate('2014-01-01', '2014-12-31') //we filter on a range of dates
+                          .reduce(ee.Reducer.sum()) //we reduce, by taking the sum
+                          .select([0], ['yearprec']); //we select the relevant bands
                           
-// Calculate bands for seasonal temperatures and elevations; c
+// Calculate bands for seasonal temperatures and elevations; 
 var summer = temperature.filterDate('2014-06-21', '2014-09-23')
     .reduce(ee.Reducer.mean())
     .select([0], ['summer']);
@@ -95,7 +118,7 @@ var winter = temperature.filterDate('2013-12-21', '2014-03-20')
 var startingPoint = ee.FeatureCollection(ee.Geometry.Point(startpoint));
 var distance = startingPoint.distance(450000);
 //now we add all the bands to the distance list:
-var image = distance.addBands(elevation).addBands(winter).addBands(summer).addBands(chirpsprecipselect);
+var image = distance.addBands(elevation).addBands(winter).addBands(summer).addBands(chirpsprecipselect); //addBands is here a function, that takes the bands defined above as input
 
 ```
 
@@ -165,7 +188,16 @@ Map.addLayer(transect, {color: 'FF0000'});
 
 *Note that you can click on the small arrow on the right upper corner of your graph to maximize the window
 
-##**Congrats: you can now analyze multiple layers at the same time on the same graph: is the result what you expected**? 
+
+
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131997467-23ba1c44-9af8-487b-a8f7-6c4409bdab17.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+
+## **Congrats: you can now analyze multiple layers at the same time on the same graph: is the result what you expected**? 
 
 <nav>
   <ul>
