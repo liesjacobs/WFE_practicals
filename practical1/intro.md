@@ -6,14 +6,17 @@ In this practical we will be exploring the datasets and functionalities of Googl
 ## Step 1: exploring the interface
 
 Now that you have your account, you can surf to the [code editor](code.earthengine.google.com/).
-Your screen should look like this ![image](https://user-images.githubusercontent.com/89069805/129699267-c9c03178-f0b5-41be-83d9-96596d36e61c.png)
+Your screen should look like this:
 
-The code editor basically consists of 4 windows: 
-- On the bottom of the screen, you can see a basemap, and any spatial information you plot (see later for examples) will show here. 
-- On the left you see a window depicting your scripts
-- The middle of the screen is devoted to the script you are currently working on or running. At the beginning of your adventures, this is still blank. 
-- On the right the panel shows either 'inspector', 'console' or 'tasks'. For now, the console is most important: here textual information or figures you wish to print or show are given. 
+![image](https://user-images.githubusercontent.com/89069805/129699267-c9c03178-f0b5-41be-83d9-96596d36e61c.png)
 
+>The code editor basically consists of 4 windows: 
+>> - On the bottom of the screen, you can see a basemap, and any spatial information you plot (see later for examples) will show here. 
+>> - On the left you see a window depicting the scripts you have written (or got from other people)
+>> - The middle of the screen is devoted to the script you are currently working on or running. At the beginning of your adventures, this is still blank. 
+>> - On the right the panel shows either 'inspector', 'console' or 'tasks'. For now, the console is most important: here textual information or figures you wish to print or show are given. 
+
+***
 
 ## Step 2: exploring the code
 The Google Earth Engine interface, as you see it above, runs on JavaScript. It might seem scary to be confronted with a new (and at times cryptic) language, but no worries: we'll go step by step. 
@@ -24,7 +27,7 @@ Of course, although the building blocks are similar, the syntax can differ quite
 
 
 
-###Commenting lines
+### Commenting lines
 
 ```javascript
 
@@ -35,7 +38,7 @@ and end with a star and a forward slash. */
 ```
 
 
-###Defining variables
+### Defining variables
 
 Variables are used to store objects and are defined using the keyword **var**.
 ```javascript
@@ -51,7 +54,7 @@ theAnswer <- 42
 ```
 
 
-###Defining string objects
+### Defining string objects
 
 string objects start and end with a single quote
 ```javascript
@@ -69,7 +72,7 @@ var test2 = 'I feel complete!';   //this is very okay
 ```
 
 
-###Passing function parameters : 
+### Passing function parameters : 
 
 
 ```javascript
@@ -78,7 +81,7 @@ print('This string will print in the Console tab.');
 ```
 
 
-###Building a vector or list with multple items: 
+### Building a vector or list with multple items: 
 
 
 ```javascript
@@ -98,7 +101,7 @@ print(myList[1]);
 ![1 iJhMo_FJ6ka70UU1t_h1eQ](https://user-images.githubusercontent.com/89069805/131823648-e8b56e95-6d58-426d-b5c0-3cf7c786eb1d.png)
 
 
-###Using dictionaries
+### Using dictionaries
 ```javascript
 
 // Curly brackets (or braces) can be used to define dictionaries (key:value pairs).
@@ -112,7 +115,7 @@ print(myDict.color);
 ```
 
 
-###Functions
+### Functions
 
 Functions can be defined as a way to reuse code and make it easier to read.
 
