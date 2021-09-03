@@ -146,7 +146,7 @@ print(paste('Hello', string, '!'));
 
 ## Quiz
 
-1. please open [this Uva Login page](portal.office.com) and login with your student account. 
+1. please open [this Uva Login page](www.portal.office.com) and login with your student account. 
 2. Now refresh this github page
 3. fill in the quiz below
 
