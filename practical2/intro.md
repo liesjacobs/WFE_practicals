@@ -19,6 +19,7 @@ We'll use following datasets:
 | Watershed delineations - Global  | Vector        | WWF      |Google Earth Engine: see below     |
 
 
+*** 
 
 ## Step 2: accessing the data
 
@@ -42,7 +43,7 @@ var clip =
         [[[-180, 60],
           [-180, -60],
           [180, -60],
-          [180, 60]]], null, false);
+          [180, 60]]], null, false); // we use the function ee.Geometry.Polygon to define a polygon consisting of 4 points (4 pairs of coordinates)
 
 
 /// we define the dataset (ImageCollection) we are interested in, and already filter a few years from it:
@@ -94,7 +95,9 @@ Export.image.toDrive({
 });
 // after running this it should appear in your 'tasks' here to the right: click on 'run'
 ```
-After running this code, a geo-tiff file (type of raster file) should load in your google drive: from here you can download it to your PC:-). 
+After running this code, a new task should appear on the right panel: executing this will allow a geo-tiff file (type of raster file) to load in your google drive: from here you can download it to your PC:-). 
+
+
 
 
 ### **WATERSHED VECTOR FILE**
