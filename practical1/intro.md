@@ -56,7 +56,8 @@ theAnswer <- 42
 
 ### Defining string objects
 
-string objects start and end with a single quote
+String objects start and end with a single quote
+
 ```javascript
 var myVariable = 'I am a string';
 
@@ -64,8 +65,10 @@ var myVariable = 'I am a string';
 var myOtherVariable = "I am also a string";
 ```
 
-```javascript
 Statements should end in a semi-colon, or the editor complains.
+
+
+```javascript
 
 var test = 'I feel incomplete...' //this is wrong
 var test2 = 'I feel complete!';   //this is very okay
@@ -74,6 +77,7 @@ var test2 = 'I feel complete!';   //this is very okay
 
 ### Passing function parameters : 
 
+Function parameters are included between parenthesis. 
 
 ```javascript
 // Parentheses are used to pass parameters to functions
@@ -83,6 +87,7 @@ print('This string will print in the Console tab.');
 
 ### Building a vector or list with multple items: 
 
+a list is built using [] brackets. 
 
 ```javascript
 The zero index refers to the first item in a list*/
@@ -94,6 +99,7 @@ print(myList[0]); // would print 'eggplant' because JavaScript starts counting f
 >Note that in R this is very similar, but slightly different as c() is used to construct lists, and R starts counting from 1 (not from zero): 
 
 ```r
+#making a list in R using c() instead of the [] used in javascript
 myList <- c('eggplant','apple','wheat')
 print(myList[1]);
 ```
