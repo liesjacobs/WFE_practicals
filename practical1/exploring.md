@@ -5,7 +5,7 @@ In this practical we will be exploring the datasets and functionalities of Googl
 ### Exercise 1: loading the biome map of the world and exploring its values
 
 Now that we know more or less how it looks, let's use it. 
-If at any point your lost on the basic JavaScript commands, go [back](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.md)
+If at any point your lost on the basic JavaScript commands, go [back](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html)
 
 > Starting to build the script: exploring the Biome map 
 
@@ -24,9 +24,10 @@ print(biomes);
 Save the file (e.g. name it 'BiomePlotting') and run it. 
 
 
-<p style="color:blue;"><p style="font-weight:bolder;">Question 1.2. If all goes well, you should see some basic information about the image *printed* in the console: how many bands does this Image have? </p></p>
+<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNEw1SkZCMDNKOUpINlBUMTFOUUU3OEM1WS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
 
+***
 
 
 > Exercise 2: plotting the biome map on the baselayer map and discovering its values
@@ -50,42 +51,35 @@ var visualization = {
 };
 
 
-```
-
-<p style="color:blue;"><p style="font-weight:bolder;">Question 1.3. Why is the minimum set at 1, and the maximum at 32? (hint: check the properties) </p></p>
-
-<p style="color:blue;"><p style="font-weight:bolder;">Question 1.4. What is does the *palette* specification entail?  </p></p>
-
-
-
-
-
-
-```javascript
-// First we set the location (lat, long, zoomlevel) where we want to focus the visualisation on: https://developers.google.com/earth-engine/apidocs/map-setcenter
+//after we have set the parameters for the visualisation (declared through the variable 'visualization'we can actually plot: 
 Map.setCenter(4,53,7);
-
-
-// Then we add the Layer to the lower panel visualisation: 
 Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 
-
 ```
 
-<p style="color:blue;"><p style="font-weight:bolder;">Question 1.5. In the last line here, what is the *function*, what are the *input variables* or *arguments*  </p></p>
+
+
+<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UQVZPTzZROU1CTVFXUzVVREdKUlNUNlgzOS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+
+
+
+
+
+
+
 
  
 
 #### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
 
-The one for the map.addlayer function can be found [here](https://developers.google.com/earth-engine/apidocs/map-addlayer)
 
 
-
-<p style="color:blue;"><p style="font-weight:bolder;">Question 1.6. Try clicking on the biome map below: what happens to the 'Inspector'  </p></p>
 
 
 Now that you know the basic functionalities of the GUI, let's try an actual [application](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html). 
+
+
 <nav>
   <ul>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
