@@ -143,7 +143,7 @@ var distance = array.slice(0, 0, 1).project([1]);
 
 
 ```
-> step 3: prepare the data for plotting on a graph  
+> step 3: prepare the data for plotting on a graph  (note: you do not need to be able to code this yourself)
 
 
 ```javascript
