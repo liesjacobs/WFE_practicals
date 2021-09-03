@@ -3,7 +3,7 @@
 In this exercise we will actually *use* data from earth engine to gain insight in a real-life question: 
 How can we explain the remarkable gradient in land cover (and related agricultural practices) along the West-Coast of the USA (see slides 32-33 course 1)
 
-
+>WARNING: the codes below can look scary, but no worries: it is not the intention to be able to reproduce this: the goal here is to understand what GEE can do, and how to broad strokes of the code below works. 
 
 
 
@@ -68,13 +68,13 @@ Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE giv
 
 
 
-Now, we can import the Image(collections) we need
+Now, we can import the Image(collections) we need and filter them
 
 ```javascript
 // Get brightness temperature data for 1 year: select band 10 of landsat8, convert kelvin to celcius and define the dates of aquisition
 var landsat8Toa = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA'); //this line imports the landsat8 top-of-atmosphere (TOA) data
-var temperature = landsat8Toa.filterBounds(transect)   //here we filter for location (i.e only transect)
-    .select(['B10'], ['temp'])    //here we filter for bands: b10 and temperature
+var temperature = landsat8Toa.filterBounds(transect)   //here we filter for location (i.e only include images that overlap with transect)
+    .select(['B10'], ['temp'])    //here we filter for band b10 and give it the name 'temperature'(https://developers.google.com/earth-engine/apidocs/ee-imagecollection-select)
     .map(function(image) {       //here we map, and we map based on a custum made function that simply converts Kelvin to Celcius (image.substract(273.15))
       // Kelvin to Celsius.
       return image.subtract(273.15)
@@ -87,7 +87,7 @@ var elevation = ee.Image('USGS/NED');  // elevation is here simply one image (so
 // let's add precipitation ass well (mm/pentad, or mm/5days), similar as temperature
 var chirps = ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD"); //rainfall (from the chirps dataset) is available every 5 days: so it is an image collection
 var chirpsprecip = chirps.filterBounds(transect)  //again, we filter for location: only the transect
-    .select(['precipitation'], ['previp'])   //again, we select only the bands of interest to us
+    .select(['precipitation'], ['previp'])   //again, we select only the band of interest (precipitation) and we give it our own name
     .set('system:time_start', chirps.get('system:time_start')); //this is a line that defines the startdate of the image collection
     
 ```
@@ -102,9 +102,9 @@ Now that we have all the image(collections), we can 'reduce' the data, so that w
 
 ```javascript
 //selecting a year worth of data for CHIRPS and sum all the data (so total yearly precipitation)
-var chirpsprecipselect = chirpsprecip.filterDate('2014-01-01', '2014-12-31') //we filter on a range of dates
+var chirpsprecipselect = chirpsprecip.filterDate('2013-12-21', '2014-12-21') //we filter on a range of dates
                           .reduce(ee.Reducer.sum()) //we reduce, by taking the sum
-                          .select([0], ['yearprec']); //we select the relevant bands
+                          .select([0], ['yearprec']); //we select the relevant band (the first band only, or that with index 0) and we give it a name
                           
 // Calculate bands for seasonal temperatures and elevations; 
 var summer = temperature.filterDate('2014-06-21', '2014-09-23')
