@@ -43,7 +43,7 @@ var clip =
         [[[-180, 60],
           [-180, -60],
           [180, -60],
-          [180, 60]]], null, false); // we use the function ee.Geometry.Polygon to define a polygon consisting of 4 points (4 pairs of coordinates)
+          [180, 60]]]); // we use the function ee.Geometry.Polygon to define a polygon consisting of 4 points (4 pairs of coordinates)
 
 
 /// we define the dataset (ImageCollection) we are interested in, and already filter a few years from it:
@@ -100,6 +100,13 @@ After running this code, a new task should appear on the right panel: executing 
 
 
 
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/132000115-e2eb270f-0893-488e-b131-56765177b744.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+
+
 ### **WATERSHED VECTOR FILE**
 
 For the exercise on Biodiversity patterns, we'll use *watersheds* as spatial units. Watersheds can be constructed at various scales (e.g. you could consider the whole catchment of the Amazone river, or you could consider the smaller catchments of its tributories). Watersheds can be a convenient spatial scale because they represent a bio-physical unity (e.g. in contrast to the boundaries of a province or country, representing administrative units). The fact that you can decide at which scale you define your watersheds also makes it (at least scale-wise) a rather flexible unit.
@@ -113,7 +120,7 @@ var clip =
         [[[-180, 60],
           [-180, -60],
           [180, -60],
-          [180, 60]]], null, false);
+          [180, 60]]]);
           
           
 /// define the dataset of interest: in our case the watersheds by WWF, at the 5th level of detail (highest level = 12)
