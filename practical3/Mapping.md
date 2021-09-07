@@ -60,7 +60,7 @@ Note that this last video also demonstrates how to export the data as a csv. Thi
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html">Practical 3: Problem description</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html">Practical 3: Data Collection</a></li>
     <li><strong>Practical 3: Mapping and spatial processing</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html">Practical 3: Analysis</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Analysis.html">Practical 3: Analysis</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
