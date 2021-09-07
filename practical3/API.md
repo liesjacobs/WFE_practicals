@@ -159,7 +159,7 @@ Now, if all is well you should have the point shapefile of the raccoons, the lin
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html">Practical 3: Problem description</a></li>
     <li><strong>Practical 3: Data Collection</strong></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Mapping.html">Practical 3: Mapping and spatial processing</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html">Practical 3: Analysis</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Analysis.html">Practical 3: Analysis</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
