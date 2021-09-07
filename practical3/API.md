@@ -81,3 +81,85 @@ Export.image.toDrive({
 ***
 
 ### Now comes the most tricky data to download: we'll access the GBIF API through the command line in R. 
+
+Open Rstudio and make a new .R file in which you will copy and (slightly) adjust the code to access the gbif data. 
+
+>Step 1, we will simply install and load the packages we need: 
+
+```r
+install.packages('rgbif') 
+install.packages('sp') 
+install.packages('rgdal') 
+library(rgbif)
+library(sp)
+library(rgdal)
+```
+
+
+>Step2: we simply set the directory in which R should read and write data: adjust what is between "" to your own path
+
+```r
+setwd("C:/Users/LHJACOB/OneDrive - UvA/UvA-Education/teaching/WFE/coursedocs2021/practical3/")
+```
+
+>Step3: now we are ready to access the gbif data. 
+>> We want Raccoon (Procyon Lotor) in Belgium, and only sightings with coordinates. 
+>> If you searh Procyon Lotor in gbif.org you will get to following page: https://www.gbif.org/species/5218786
+>> the last few numbers in this url is the taxonKey of the raccoon: a key that gbif uses to identify taxons
+>> Now we have all info to build a query for the raccoon in Belgium, with coordinates: 
+
+
+```r
+#BUILD THE QUERY; 
+result <- occ_download(pred('taxonKey', 5218786), pred('hasCoordinate', TRUE), pred("country", 'BE'), email = "FILL IN YOUR EMAIL HERE", pwd="FILL IN YOUR PASSWORD HERE", user="FILL IN YOUR USERNAME HERE")
+
+#DOWNLOAD THE METADATA
+occ_download_meta(result)   # this step takes some time: repeat once every minute or so to check updates
+```
+
+>>Once this last command changes from status 'preparing' or 'running' to 'succeeded' you can move to the download
+
+```r
+data <- occ_download_get(result, overwrite = T) #download the data
+raccoons<-occ_download_import(data) #import the data
+```
+
+>>This data has *A LOT* of columns, many of which we don't need, so let's simplify, and then only select those sightings that occur since 2015
+
+```r
+raccoons<-as.data.frame(cbind(raccoons$decimalLatitude,raccoons$decimalLongitude,raccoons$year))
+colnames(raccoons)<-c("lat", "lon", "year")
+raccoons<-raccoons[which(raccoons$year>2014),]
+```
+
+>>Great, only one thing left to do: export the data as a shapefile: This is relatively simple: we'll have to explicitly tell R where to find the coordinates, and then write the file: 
+
+```r
+coordinates(raccoons)<-cbind(raccoons$lon,raccoons$lat)
+writeOGR(obj=raccoons, dsn=getwd(), layer="raccoons", driver="ESRI Shapefile") # this is in geographical projection
+```
+
+
+*** 
+
+
+Now, if all is well you should have the point shapefile of the raccoons, the line shapefile of the rivers, the polygon shapefile of the boundaries of belgium and the tiff raster file with the topographic diversity
+
+**Great, we can move to the [geo-processing in QGIS](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Mapping.html)
+
+
+<nav>
+  <ul>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html">Practical 2: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 2: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/Rstudio.html">Practical 2: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html">Practical 3: Problem description</a></li>
+    <li><strong>Practical 3: Data Collection</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Mapping.html">Practical 3: Mapping and spatial processing</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html">Practical 3: Analysis</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+  </ul>
+</nav>
