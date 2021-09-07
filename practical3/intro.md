@@ -46,4 +46,33 @@ Much like all problems, we'll need to simplify and define this one as well:
 
 ### Data description
 
+Now that we have described the problem, we can describe the data we'll use
+
+| Dataset      | Type | Source     |Access point     |
+| :---        |    :---    |          :---  |         :---  |
+| Raccoon sightings      | Vector:points       | GBIF  |GBIF API in R   |
+| River Network   | Vector:lines        | Open Street Map     |OSM API in QGIS    |
+| Topographic Diversity  | Raster        | derived from the ALOS DEM      |Google Earth Engine    |
+| Boundary of Belgium  | Vectory: polygon        | OSM     |Direct download: https://biogeo.ucdavis.edu/data/diva/adm/BEL_adm.zip |
+
+***
+
+
+**Now we are ready for the [next step](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html): using the various APIs to download the data**
+
+<nav>
+  <ul>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html">Practical 2: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 2: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/Rstudio.html">Practical 2: exercise 3</a></li>
+    <li><strong>Practical 3: Describing the problem</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html">Practical 3: Data collection</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Mapping.html">Practical 3: Mapping and spatial processing</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html">Practical 3: Analysis</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+  </ul>
+</nav>
 
