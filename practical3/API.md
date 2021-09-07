@@ -36,12 +36,12 @@ Your browser does not support the video tag.
 >>Rivers in OSM belong to the *Key* 'Waterway' and the *Value* 'River'. 
 >>For the location, we want to use the administrative boundary of belgium we just downloaded
 >>Because the data we try to access is quite a large set, we'll increase the time allowed (before an error is trown) to 200 seconds (under advanced settings). We also untick the 'node'box, the 'relation' box, the 'points' box and the 'mulitpolygons' : rivers are coded as 'Ways'in OSM and as lines or multilinestrings, so by unticking the other boxes, we'll remove unnecessary searches. 
->>The Final interface of the plugin should look like this: 
-
+>>The Final interface of the plugin should look like the figure below
+>>now you can click on *Run query* and wait: if all goes well, the layer should load in QGIS
 
 ![osmplugin](https://user-images.githubusercontent.com/89069805/132326967-ca2acb13-fdd6-4bb7-8236-6fb4f322879b.png)
 
->>now you can click on *Run query* and wait
+
 
 
 ***
