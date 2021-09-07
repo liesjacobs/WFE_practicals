@@ -35,3 +35,15 @@ More than only 'showing' where they live (on a map) we also want to investigate 
 Much like all problems, we'll need to simplify and define this one as well: 
 
 
+| Building block  |  Decision |
+|---|---|
+| Geographic scale |  Regular cels – small enough to capture relevant habitat changes|
+| temporal scale |  Raccoon is only recent phenomenon in Belgium, so we focus on occurrences >2015|
+| Assumption | “opportunistic” observations of raccoons by the general public over the past years are of sufficient quality and can be linked to biophysical conditions, Raccoons might prefer habitats with more diversity in topography and/or the presence of water|
+| Dimensions | we focus on (i) topograph and (ii) the presence of water |
+| Dimension description | Topographic Diversity as calculated from a DEM, and the river network as provided by OSM |
+
+
+### Data description
+
+
