@@ -97,3 +97,17 @@ text(1000,140, paste("p-value of NDVI is ", summary(regression)$coefficients[8])
 After the execution, you should get something like this: 
 
 ![example](https://user-images.githubusercontent.com/89069805/131496702-b8d0af27-b702-4175-8525-1ce44975cc2b.png)
+
+
+<nav>
+  <ul>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html">Practical 2: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 2: exercise 2</a></li>
+    <li><strong>Practical 2: exercise 3</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+  </ul>
+</nav>
+
