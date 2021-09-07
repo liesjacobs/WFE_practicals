@@ -17,3 +17,4 @@ In preparation for the course, please install following software:
 
 [Practical 2](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html)
 
+[Practical 3](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html)
