@@ -18,11 +18,20 @@ Although the term might be new to you, the concept itself is not.
 
 In this last practical we will  we will be using a combination of Google Earth Engine-QGIS-R to analyse the occurrence of Raccoons in Belgium. We will use API implementations in all three tools to access data, and we'll do a processing step in QGIS and some postprocessing in Rstudio. 
 
-![flow](https://user-images.githubusercontent.com/89069805/132313591-66560e0a-57de-4a5b-ad67-5e9312f9ebfd.png)
-
-It is however essential that you found your way trough the [first practical](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html) as well as the [second practical](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html) as this last practical builds upon this. 
+![flow](https://user-images.githubusercontent.com/89069805/132313886-1b4c590e-f97f-44c2-9f8f-66536e85dd33.png)
 
 
-## Step 1: Required softwares and datasets: overview
+Make sure you found your way trough the [first practical](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html) as well as the [second practical](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html) as this last practical builds upon this. 
 
-### **Softwares** 
+
+## Step 1: The case-study
+
+The case we are investigating today is where the raccoon lives in Belgium. The raccoon is an exotic species, that is not endemic to the area and might pose problems for local species as well as induce nuissance for humans. We are therefore quite interested in where they live currently. 
+
+More than only 'showing' where they live (on a map) we also want to investigate two spatial factors that might co-determine their spatial pattern of occurrence: the presence of rivers, and the topographic diversity of the landscape. 
+
+### Problem simplification
+
+Much like all problems, we'll need to simplify and define this one as well: 
+
+
