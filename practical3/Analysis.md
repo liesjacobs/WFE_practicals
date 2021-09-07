@@ -26,6 +26,6 @@ boxplot(clipgridbel$LENGTH~clipgridbel$NUMPOINTS, outline = F, col=c("green", "p
 ```
 
 
-## Based on this analysis, which statistical tests would you do? 
+### Based on this analysis, which statistical tests would you do? 
 
-## Are the effects you see real? Or are there other factors we did not consider? 
+### Are the effects you see real? Or are there other factors we did not consider? 
