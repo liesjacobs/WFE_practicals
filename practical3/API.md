@@ -75,3 +75,9 @@ Export.image.toDrive({
 
 
 ```
+
+
+
+***
+
+### Now comes the most tricky data to download: we'll access the GBIF API through the command line in R. 
