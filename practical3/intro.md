@@ -57,6 +57,10 @@ Now that we have described the problem, we can describe the data we'll use
 
 ***
 
+Before we continue, you'll need one more thing: an account on [gbif.org](https://www.gbif.org/): remember which email address you used, and your password
+
+
+
 
 **Now we are ready for the [next step](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html): using the various APIs to download the data**
 
