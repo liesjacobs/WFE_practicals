@@ -95,6 +95,12 @@ Export.image.toDrive({
 });
 // after running this it should appear in your 'tasks' here to the right: click on 'run'
 ```
+
+
+<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNlczMlFKTk1HSVE2OFRSNk9LT00zTlRTRi4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+
+
 After running this code, a new task should appear on the right panel: executing this will allow a geo-tiff file (type of raster file) to load in your google drive: from here you can download it to your PC:-). 
 
 
