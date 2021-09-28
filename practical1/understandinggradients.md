@@ -16,7 +16,7 @@ Your browser does not support the video tag.
 
 
 
-> step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects)
+> step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects): the first time you make a script you'll be asked to enter your username and repository name
 
 
 
