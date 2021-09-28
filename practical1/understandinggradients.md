@@ -41,7 +41,7 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 | Geographic scale |  Transect (line) |
 | temporal scale |  all data input should span same timespan |
 | Assumption | The different landcovers on such a short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
-| Dimensions | We'll winter and summer temperature and yearly precipitation |
+| Dimensions | We'll use winter and summer temperature and yearly precipitation |
 | Dimension description | LANDSAT band 10 for temperature, CHIRPS for precipitation, a local DEM for topography |
 
 
@@ -208,6 +208,8 @@ Your browser does not support the video tag.
 
 
 ## **Congrats: you can now analyze multiple layers at the same time on the same graph: is the result what you expected**? 
+<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNUFRSFhMUjFINzJHR0NLRjlBSktRRlE2Vy4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
 
 <nav>
   <ul>
