@@ -23,6 +23,8 @@ In this last practical we will  we will be using a combination of Google Earth E
 
 Make sure you found your way trough the [first practical](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html) as well as the [second practical](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html) as this last practical builds upon this. 
 
+The presentation that is used in class to introduce this practical session can be downloaded [here](https://github.com/liesjacobs/World-Food-and-Ecosystems/raw/gh-pages/practical3/WFE_pract3_light.pdf)
+
 
 ## Step 1: The case-study
 
