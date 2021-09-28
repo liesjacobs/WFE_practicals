@@ -146,6 +146,7 @@ print(myHelloFunction('world'));
 ```r
 myHelloFunction <- function(string) {
 print(paste('Hello', string, '!'))}
+myHelloFunction('world')
 ```
 
 
