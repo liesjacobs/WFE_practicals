@@ -25,7 +25,12 @@ To access, explore and use Google Earth Engine, only a basic understanding of Ja
 
 Of course, although the building blocks are similar, the syntax can differ quite a bit. Some key tips and tricks for JavaScript are listed here (source: <a href="https://docs.google.com/document/d/1ZxRKMie8dfTvBmUNOO0TFMkd7ELGWf3WjX0JvESZdOE/edit" target="_blank">Earth Engine 101 Beginner's Curriculum</a>.)
 
+---
+**NOTE**
 
+Try to copy-paste some of these commands to your code editor in google earth and run it: what happens?
+
+---
 
 ### Commenting lines
 
@@ -44,12 +49,14 @@ Variables are used to store objects and are defined using the keyword **var**.
 ```javascript
 
 var theAnswer = 42;
+print(theAnswer);
 ```
 
 >Note that the equivalent in R would be: 
 
 ```r
 theAnswer <- 42
+print(theAnswer)
 
 ```
 
@@ -160,7 +167,7 @@ print(paste('Hello', string, '!'))}
 In this practical, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
 
 
-But now that you know the basics, let's explore its [functionalities](https://liesjacobs.github.io/World-Food-and_Ecosystems/practical1/exploring.html)
+But now that you know the basics, let's explore its [functionalities](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html)
 
 
 
