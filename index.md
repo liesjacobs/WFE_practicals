@@ -8,7 +8,7 @@ This is the GitHub Page that summarizes the instructions for practicals 1-2-6-7-
 ### Preparation for the course
 
 In preparation for the course, please install following software: 
-1. Install [QGIS 3.4xx (with GRASS 7.6xxx)](https://www.qgis.org/en/site/forusers/download.html). I recommend installing the long-term release version. 
+1. Install [QGIS 3.4xx (with GRASS 7.6xxx)](https://www.qgis.org/en/site/forusers/download.html). I recommend installing the long-term release version which you can download [here](https://qgis.org/downloads/QGIS-OSGeo4W-3.16.11-1.msi)
 2. Install [R and R studio](http://cran.rstudio.com/)
 3. Make a google earth engine account, by [signing up here](https://signup.earthengine.google.com/#!/) 
 
