@@ -6,7 +6,17 @@ In this practical we will be using a combination of Google Earth Engine-QGIS-R t
 
 ### **Softwares** 
 
-As mentioned on the [starting page](https://liesjacobs.github.io/World-Food-and-Ecosystems/), you'll need QGIS, Rstudio and a working account for [code editor](code.earthengine.google.com/).
+As mentioned on the [starting page](https://liesjacobs.github.io/World-Food-and-Ecosystems/), you'll need QGIS, Rstudio and a working account for [code editor](https://code.earthengine.google.com/).
+
+Once you have installed QGIS, it will assume the language of your operating system. However, for troubleshooting, and communicating about issues as well as following tutorials, it is useful to have your interface in English. Changing the language can be done as follows: 
+
+
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/136760943-30c433a0-d641-4c44-bc6a-ad606b599666.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
 
 ### **Datasets**
 
@@ -38,12 +48,7 @@ The whole google earth engine code is here below, with each of the lines comment
 ```javascript
 
 /// we define the area for which we want to download data:
-var clip = 
-    ee.Geometry.Polygon(
-        [[[-180, 60],
-          [-180, -60],
-          [180, -60],
-          [180, 60]]]); // we use the function ee.Geometry.Polygon to define a polygon consisting of 4 points (4 pairs of coordinates)
+var clip =  ee.Geometry.BBox(-180, -60, 180, 60); // we use the function ee.Geometry.BBox to define a bounding box 
 
 
 /// we define the dataset (ImageCollection) we are interested in, and already filter a few years from it:
