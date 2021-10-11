@@ -126,12 +126,7 @@ To download the shapefile of the hydrosheds by WWF, we'll follow a very similar 
 
 ```javascript
 /// define the region of interest (ROI): 
-var clip = 
-    ee.Geometry.Polygon(
-        [[[-180, 60],
-          [-180, -60],
-          [180, -60],
-          [180, 60]]]);
+var clip =  ee.Geometry.BBox(-180, -60, 180, 60);
           
           
 /// define the dataset of interest: in our case the watersheds by WWF, at the 5th level of detail (highest level = 12)
