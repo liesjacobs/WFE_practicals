@@ -63,6 +63,8 @@ Your browser does not support the video tag.
 </video>
 
 
+*Note*: In this exercise we are not considering the fact that the samples (watersheds) are spatially correlated: nearby watersheds will resemble each other more than watersheds that are further apart from each other. This is called "spatial autocorrelation". Ignoring spatial autocorrelation (as we do here) could pose a problem in the sense that the observations (waterhsed) are not fully independent of one another, violating the assumption of our statistical test. Dealing with spatial autocorrleation is topic of courses at the master level. 
+
 The plot is a bit ugly, so we can pimp it, and also plot the regression line. 
 Copy paste the code below and execute it yourself: 
 
