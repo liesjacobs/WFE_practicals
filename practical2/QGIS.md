@@ -38,6 +38,7 @@ Of course, for the purpose of this exercise, these decisions have already been t
 
 * we'll use the function *zonal statistics* in the QGIS toolbox to calculate this
 * because both are averages over a spatial unit, the size of the spatial unit is not explicitally corrected for here
+* In principle, it is good practice to have all your files in the same projection system (see also, courses of Digital Earth). In our case, the shapefile is in geographic coordinates (WGS84) while the raster file on species richness is in World Eckert IV. The Zonal Statistics tool we use in this class apparently is capable of dealing with this difference. However, if ever a tool does not work (properly) remember that this could be one of the reasons. If you would like to reproject a vector layer, [here's a video on how to do so:](https://user-images.githubusercontent.com/89069805/136777324-94c57539-329e-4a20-8d4e-bc9a0c0af8e3.mp4). 
 
 
 
