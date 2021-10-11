@@ -14,7 +14,7 @@ Your browser does not support the video tag.
 Now we get to the core objective of the exercise: what is the link between biodiversity and available vegetation? 
 
 
-### To answer this question, we'll need to decide and simplify (course 1, slide 45)
+### To answer this question, we'll need to decide and simplify (see course 1)
 * Geographic scale – spatial unit 
 * Temporal scale 
 * Boundary conditions/assumptions
@@ -36,8 +36,9 @@ Of course, for the purpose of this exercise, these decisions have already been t
 
 ### Now that we have simplified we can take the average species richness and average NDVI per watershed
 
-* because both are averages over a spatial unit, the size of the spatial unit is not explicitally corrected for here
 * we'll use the function *zonal statistics* in the QGIS toolbox to calculate this
+* because both are averages over a spatial unit, the size of the spatial unit is not explicitally corrected for here
+
 
 
 <video style="width:100%" controls>
