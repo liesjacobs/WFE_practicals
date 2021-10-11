@@ -24,7 +24,7 @@ We'll use following datasets:
 
 | Dataset      | Type | Source     |Access point     |
 | :---        |    :---    |          :---  |         :---  |
-| Mammal species richness - Global      | Raster       | Jenkins et al. 2015  |[biodiversity.org](https://biodiversitymapping.org/wp-content/uploads/2018/12/Mammal_maps_hi_res_2018_12d16.zip)   |
+| Mammal species richness - Global      | Raster       | Jenkins et al. 2015  |[biodiversity.org](https://biodiversitymapping.org/wp-content/uploads/2020/02/BiodiversityMapping_TIFFs_2019_03d14_revised.zip)   |
 | NDVI map - Global   | Raster        | Modis Imagery      |Google Earth Engine: see below     |
 | Watershed delineations - Global  | Vector        | WWF      |Google Earth Engine: see below     |
 
