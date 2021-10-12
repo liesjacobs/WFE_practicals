@@ -42,7 +42,7 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 | temporal scale |  all data input should span same timespan |
 | Assumption | The different landcovers on such a short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
 | Dimensions | We'll use winter and summer temperature and yearly precipitation |
-| Dimension description | LANDSAT band 10 for temperature, CHIRPS for precipitation, a local DEM for topography |
+| Dimension description | ERA5 for temperature, CHIRPS for precipitation, a local DEM for topography |
 
 
 >TIP: If you are looking for data, or data types, you could use the search bar above to find datasets and even examples of code to import/plot/...
@@ -80,15 +80,11 @@ Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE giv
 Now, we can import the Image(collections) we need and filter them
 
 ```javascript
-// Get brightness temperature data for 1 year: select band 10 of landsat8, convert kelvin to celcius and define the dates of aquisition
-var landsat8Toa = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA'); //this line imports the landsat8 top-of-atmosphere (TOA) data
-var temperature = landsat8Toa.filterBounds(transect)   //here we filter for location (i.e only include images that overlap with transect)
-    .select(['B10'], ['temp'])    //here we filter for band b10 and give it the name 'temperature'(https://developers.google.com/earth-engine/apidocs/ee-imagecollection-select)
-    .map(function(image) {       //here we map, and we map based on a custum made function that simply converts Kelvin to Celcius (image.substract(273.15))
-      // Kelvin to Celsius.
-      return image.subtract(273.15)
-          .set('system:time_start', image.get('system:time_start'));
-    });
+// Daily mean 2m air temperature
+var era5_2mt = ee.ImageCollection('ECMWF/ERA5/DAILY')
+                   .select('mean_2m_air_temperature')
+                   .filter(ee.Filter.date('2013-12-21', '2014-09-23'));
+print(era5_2mt);
     
 //import elevation:
 var elevation = ee.Image('USGS/NED');  // elevation is here simply one image (so no image collection) because it only contains 1 acquisition (unlike landsat imagery)
@@ -116,10 +112,11 @@ var chirpsprecipselect = chirpsprecip.filterDate('2013-12-21', '2014-12-21') //w
                           .select([0], ['yearprec']); //we select the relevant band (the first band only, or that with index 0) and we give it a name
                           
 // Calculate bands for seasonal temperatures and elevations; 
-var summer = temperature.filterDate('2014-06-21', '2014-09-23')
+// Calculate bands for seasonal temperatures and elevations; 
+var summer = era5_2mt.filterDate('2014-06-21', '2014-09-23')
     .reduce(ee.Reducer.mean())
     .select([0], ['summer']);
-var winter = temperature.filterDate('2013-12-21', '2014-03-20')
+var winter = era5_2mt.filterDate('2013-12-21', '2014-03-20')
     .reduce(ee.Reducer.mean())
     .select([0], ['winter']);
 
@@ -164,7 +161,7 @@ var chart = ui.Chart.array.values(elevationAndTempAndPrecip, 1, distance)
       title: 'Elevation, temperatures and precipitation along transect',
       vAxes: {
         0: {
-          title: 'Average seasonal temperature (Celsius)'
+          title: 'Average seasonal temperature '
         },
         1: {
           title: 'Elevation (meters, blue) or precipitation (mm, Green)',
