@@ -2,7 +2,7 @@
 
 ## Welcome to the practicals of WFE
 
-This is the GitHub Page that summarizes the instructions for practicals 1-2-6-7-8 of the course  [World Food and Ecosystems](https://canvas.uva.nl/courses/17225).
+This is the GitHub Page that summarizes the instructions for practicals 1-2-6 of the course  [World Food and Ecosystems](https://canvas.uva.nl/courses/17225).
 
 
 ### Preparation for the course
@@ -17,4 +17,4 @@ In preparation for the course, please install following software:
 
 [Practical 2](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html)
 
-[Practical 3](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html)
+[Practical 6](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html)
