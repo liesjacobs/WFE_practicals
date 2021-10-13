@@ -57,10 +57,10 @@ Note that this last video also demonstrates how to export the data as a csv. Thi
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html">Practical 2: exercise 1</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 2: exercise 2</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/Rstudio.html">Practical 2: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html">Practical 3: Problem description</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html">Practical 3: Data Collection</a></li>
-    <li><strong>Practical 3: Mapping and spatial processing</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Analysis.html">Practical 3: Analysis</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html">Practical 6: Problem description</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html">Practical 6: Data Collection</a></li>
+    <li><strong>Practical 6: Mapping and spatial processing</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Analysis.html">Practical 6: Analysis</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
