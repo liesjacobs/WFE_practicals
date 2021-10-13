@@ -1,4 +1,4 @@
-# Welcome to the Third practical. 
+# Welcome to the last practical. 
 
 
 Congratulations, you have come a very long way...
@@ -74,10 +74,10 @@ Before we continue, you'll need one more thing: an account on [gbif.org](https:/
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html">Practical 2: exercise 1</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 2: exercise 2</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/Rstudio.html">Practical 2: exercise 3</a></li>
-    <li><strong>Practical 3: Describing the problem</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html">Practical 3: Data collection</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Mapping.html">Practical 3: Mapping and spatial processing</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html">Practical 3: Analysis</a></li>
+    <li><strong>Practical 6: Describing the problem</strong></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html">Practical 6: Data collection</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Mapping.html">Practical 6: Mapping and spatial processing</a></li>
+    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html">Practical 6: Analysis</a></li>
     <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
