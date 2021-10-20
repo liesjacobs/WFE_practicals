@@ -10,11 +10,16 @@
 Your browser does not support the video tag.
 </video>
 
+If your scalebar shows weird (low) numbers: this is probably because the units are still in the units of the project (so degrees): if you click on the scalebar, on the right you'll see a dropdown menu where you can change the desired units to e.g. km. 
+
 
 >Next step in QGIS is to use the grids we made earlier and summarize the data per grid. Each of these things can be achieved through a different function in QGIS
 >>How many raccoon sightings? --> *Count points per polygon*
+
 >>Average topographic diversity? -->*Zonal statistics*
->>total river length per polygon grid cell? -->*Sum of line lenght*
+
+
+>>total river length per polygon grid cell? -->*Sum of line length*
 
 The videos below show you how you can implement these different functions: 
 
@@ -22,31 +27,49 @@ The videos below show you how you can implement these different functions:
 
 
 <video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/132332865-8542bef2-911c-4f71-b1d7-a4d546962aab.mp4" type="video/mp4">
+  <source src="https://user-images.githubusercontent.com/89069805/138072650-241cfcec-7a5a-4b1f-9bd6-3a84c9efabfe.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+
+
+
 
 
 ### Average topographic diversity 
 
 
 <video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/132332818-bc5a061b-ec10-4fab-af89-59d311680b1d.mp4" type="video/mp4">
+  <source src="https://user-images.githubusercontent.com/89069805/138072707-08825837-3a32-48b7-a6e3-ad8c3852daf2.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+
+
+
+
+
 
 ### Sum of line length
 
 
 <video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/132332926-3511c33e-b4bd-436d-a79d-d5f699288920.mp4" type="video/mp4">
+  <source src="https://user-images.githubusercontent.com/89069805/138072762-877dae88-0f75-4312-ab85-234c1380426d.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
 
+
+
+
+
 ***
 
-Note that this last video also demonstrates how to export the data as a csv. This we do to make sure we can read the results of our processing in Rstudio, where we will do the [final analysis](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html)
+
+
+Note that this last video also demonstrates how to export the data as a csv. Note that for filenaming, it is a good idea to avoid points and spaces within the filename. This we do to make sure we can read the results of our processing in Rstudio, where we will do the [final analysis](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html)
+
+<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UQ0o0Q1dNVEFRQUlZUk1ZSDJZR0NRRFE2TC4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
 
 <nav>
