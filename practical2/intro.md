@@ -108,7 +108,7 @@ Export.image.toDrive({
 
 After running this code, a new task should appear on the right panel: executing this will allow a geo-tiff file (type of raster file) to load in your google drive: from here you can download it to your PC:-). 
 
-
+Note that the values range from -2000 to 8000: this is different from what you know from the classes in remote sensing (NDVI typically ranging between -1 and 1): this is because, for data storage and processing reasons, it is more interesting to store all values as integers and assign a scaling factor (in this case a value of 1000). All the integers you see on the map thus in reality represent the NDVI*1000
 
 
 <video style="width:100%" controls>
