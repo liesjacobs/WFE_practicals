@@ -42,7 +42,7 @@ Much like all problems, we'll need to simplify and define this one as well:
 | Geographic scale |  Regular cels – small enough to capture relevant habitat changes|
 | temporal scale |  Raccoon is only recent phenomenon in Belgium, so we focus on occurrences >2015|
 | Assumption | “opportunistic” observations of raccoons by the general public over the past years are of sufficient quality and can be linked to biophysical conditions, Raccoons might (???) habitats with more diversity in topography and/or the presence of water|
-| Dimensions | we focus on (i) topograph and (ii) the presence of water |
+| Dimensions | we focus on (i) topographic diversity and (ii) the presence of water |
 | Dimension description | Topographic Diversity as calculated from a DEM, and the river network as provided by OSM |
 
 <iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UMlVPM1hPWkFPMDhRVElTRlQ2S0o1VFNMRC4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
