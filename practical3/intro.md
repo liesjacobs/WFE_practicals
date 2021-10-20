@@ -16,7 +16,7 @@ Although the term might be new to you, the concept itself is not.
 - e.g. try typing 'weather Amsterdam' in Google: google will understand that these two strings mean you want to search for a weather forcast and will use this to construct one based on 3rd party weather providers. 
 - Actually... the exercises we have done in GEE is a good example of an API implementation: GEE knows and recognizes conventions (e.g. map.AddLayer(), ee.ImageCollection()....) and knows how to use these to perform tasks
 
-In this last practical we will  we will be using a combination of Google Earth Engine-QGIS-R to analyse the occurrence of Raccoons in Belgium. We will use API implementations in all three tools to access data, and we'll do a processing step in QGIS and some postprocessing in Rstudio. 
+In this last practical we will be using a combination of Google Earth Engine-QGIS-R to analyse the occurrence of Raccoons in Belgium. We will use API implementations in all three tools to access data, and we'll do a processing step in QGIS and some postprocessing in Rstudio. 
 
 ![flow](https://user-images.githubusercontent.com/89069805/132313886-1b4c590e-f97f-44c2-9f8f-66536e85dd33.png)
 
@@ -41,10 +41,11 @@ Much like all problems, we'll need to simplify and define this one as well:
 |---|---|
 | Geographic scale |  Regular cels – small enough to capture relevant habitat changes|
 | temporal scale |  Raccoon is only recent phenomenon in Belgium, so we focus on occurrences >2015|
-| Assumption | “opportunistic” observations of raccoons by the general public over the past years are of sufficient quality and can be linked to biophysical conditions, Raccoons might prefer habitats with more diversity in topography and/or the presence of water|
+| Assumption | “opportunistic” observations of raccoons by the general public over the past years are of sufficient quality and can be linked to biophysical conditions, Raccoons might (???) habitats with more diversity in topography and/or the presence of water|
 | Dimensions | we focus on (i) topograph and (ii) the presence of water |
 | Dimension description | Topographic Diversity as calculated from a DEM, and the river network as provided by OSM |
 
+<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UMlVPM1hPWkFPMDhRVElTRlQ2S0o1VFNMRC4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
 ### Data description
 
