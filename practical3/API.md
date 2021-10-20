@@ -9,13 +9,20 @@ The easiest set to download are the administrative boundaries of Belgium, this i
 
 >Now that we have the shapefile, let's open in it in QGIS and subdivide it in smaller spatial units (polygons in the shape of gridcells) that we can use to do our analysis. 
 >>Because the shapefile of Belgium is referenced in WGS84 ( so it has geographical coordinates in degrees rather than x,y coordinates in meters) the unit of subdivision is also in degrees. Note that it would be more correct to convert all layers to a projected coordinate system (e.g. UTM). For the purpose of this exercise, we'll keep all data in WGS84.
->>To subdivide the territory, we'll need two functions: *Create Grid* function you'll find under the 'vector' tab, and finally, you'll need to clip the created grid again with the boundary layer of belgium, so that you only keep those grids that fall within the country: 'Vector'-->'Geoprocessing tools'-->'Clip'
+>>To subdivide the territory, we'll need two functions: *Create Grid* function you'll find under the 'vector' tab, and finally, you'll need to remove all the cells that (partially) fall outside of the boundaries of this country. The videos below show you how'
 
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/132325445-4ce14f7e-e7fe-4906-a606-bf905a0db358.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/138064677-c599ab1f-817e-417a-85e7-1bcaa2306518.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+
 
 
 
@@ -38,6 +45,8 @@ Your browser does not support the video tag.
 >>Because the data we try to access is quite a large set, we'll increase the time allowed (before an error is trown) to 200 seconds (under advanced settings). We also untick the 'node'box, the 'relation' box, the 'points' box and the 'mulitpolygons' : rivers are coded as 'Ways'in OSM and as lines or multilinestrings, so by unticking the other boxes, we'll remove unnecessary searches. 
 >>The Final interface of the plugin should look like the figure below
 >>now you can click on *Run query* and wait: if all goes well, the layer should load in QGIS
+>>if you execute too many queries/downloads in a short amount of time, the server might refuse to execute. In case of persistant difficulties, you can also download the dataset [here](https://github.com/liesjacobs/World-Food-and-Ecosystems/files/7379827/practical3.zip).
+
 
 ![osmplugin](https://user-images.githubusercontent.com/89069805/132326967-ca2acb13-fdd6-4bb7-8236-6fb4f322879b.png)
 
@@ -47,17 +56,20 @@ Your browser does not support the video tag.
 ***
 
 Now that we have our river layer, we can download the raster fill for topographic diversity. Luckily, we already know how, as this layer is available in GEE, so we can clip the image we need, and export it to our google drive, and from there, download it: 
+! Note that this could take a few minutes: in the meantime you could further explore the papers that are on canvas. 
 
 ```javascript
 
 var belgium_window = 
     ee.Geometry.Polygon(
-        [[[0.267, 51.908],
-          [0.267, 48.623],
-          [8.946, 48.623],
-          [8.946, 51.908]]]);
+        [[[2.51, 51.6],
+          [2.51, 49.49],
+          [6.48, 49.49],
+          [6.48, 51.6]]]);
 
-var topo = ee.Image("CSP/ERGo/1_0/Global/ALOS_topoDiversity").clip(belgium_window);
+var dataset = ee.Image('CSP/ERGo/1_0/Global/ALOS_mTPI'); //load the mTPI image
+var alosMtpi = dataset.select('AVE'); //select the correct band (there is only one)
+var topo = alosMtpi.clip(belgium_window); //clip with a box containing belgium
 print(topo);
 
 Map.addLayer(topo);
@@ -83,6 +95,8 @@ Export.image.toDrive({
 ### Now comes the most tricky data to download: we'll access the GBIF API through the command line in R. 
 
 Open Rstudio and make a new .R file in which you will copy and (slightly) adjust the code to access the gbif data. 
+Note, if you get warnings or error messages regarding packages that are needed but not installed, please install them using the install.packages function we also use below.
+
 
 >Step 1, we will simply install and load the packages we need: 
 
@@ -99,7 +113,7 @@ library(rgdal)
 >Step2: we simply set the directory in which R should read and write data: adjust what is between "" to your own path
 
 ```r
-setwd("C:/Users/LHJACOB/OneDrive - UvA/UvA-Education/teaching/WFE/coursedocs2021/practical3/")
+setwd("C:/Users/LHJACOB/OneDrive - UvA/UvA-Education/teaching/WFE/coursedocs2021/practical3/") #note that R only accepts forward slashes in path. 
 ```
 
 >Step3: now we are ready to access the gbif data. 
@@ -143,7 +157,14 @@ writeOGR(obj=raccoons, dsn=getwd(), layer="raccoons", driver="ESRI Shapefile") #
 *** 
 
 
-Now, if all is well you should have the point shapefile of the raccoons, the line shapefile of the rivers, the polygon shapefile of the boundaries of belgium and the tiff raster file with the topographic diversity
+Now, if all is well you should have the point shapefile of the raccoons, the line shapefile of the rivers, the polygon shapefile of the boundaries of belgium and the tiff raster file with the topographic diversity: check if you have all the data in one place (e.g. the folder you made specifically for this practical exercise) using the table: 
+
+| Dataset      | Type | Source     |Access point     |
+| :---        |    :---    |          :---  |         :---  |
+| Raccoon sightings      | Vector:points       | GBIF  |GBIF API in R   |
+| River Network   | Vector:lines        | Open Street Map     |OSM API in QGIS    |
+| Topographic Diversity  | Raster        | derived from the ALOS DEM      |Google Earth Engine    |
+| Boundary of Belgium  | Vectory: polygon        | OSM     |Direct download: https://biogeo.ucdavis.edu/data/diva/adm/BEL_adm.zip |
 
 **Great, we can move to the [geo-processing in QGIS](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Mapping.html)
 
